@@ -6,4 +6,8 @@
   .link {
     @apply font-medium underline text-accent hover:text-accent-dark;
   }
+
+  .heading {
+    @apply text-4xl font-bold sm:text-5xl md:text-6xl;
+  }
 }

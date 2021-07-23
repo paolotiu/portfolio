@@ -23,8 +23,8 @@ const ThemeToggleButton = ({
 const Navbar = () => {
   const { theme, setTheme } = useTheme();
   return (
-    <nav className="h-[100px] px-8 py-4">
-      <div className="flex items-center justify-between">
+    <header className="fixed top-0 flex justify-center w-full px-8 py-4">
+      <nav className="flex items-center justify-between flex-1 max-w-[1920px]">
         <div>
           <span className="font-bold">PAOLO TIU</span>
         </div>
@@ -39,8 +39,8 @@ const Navbar = () => {
             </ThemeToggleButton>
           )}
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 };
 
