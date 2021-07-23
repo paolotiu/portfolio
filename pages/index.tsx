@@ -1,10 +1,12 @@
 import LinkTo from '@/components/LinkTo';
 import Navbar from '@/components/Navbar';
+import SocialsLine from '@/components/SocialsLine';
 
 export default function Home() {
   return (
     <div>
       <Navbar />
+
       <main>
         <section className="flex items-center justify-center min-h-screen">
           <div className="px-4 mb-48 space-y-1">
@@ -20,6 +22,7 @@ export default function Home() {
           </div>
         </section>
       </main>
+      <SocialsLine />
     </div>
   );
 }

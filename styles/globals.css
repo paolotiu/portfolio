@@ -11,3 +11,12 @@
     @apply text-4xl font-bold sm:text-5xl md:text-6xl;
   }
 }
+
+.socials-line::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 90px;
+  margin: 0px auto;
+  @apply bg-black dark:bg-white;
+}
