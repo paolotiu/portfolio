@@ -8,7 +8,9 @@
   }
 
   .heading {
-    @apply text-4xl font-bold sm:text-5xl md:text-6xl;
+    font-size: clamp(40px, 8vw, 70px);
+    line-height: 1.1em;
+    @apply font-bold;
   }
 
   .button {

@@ -26,7 +26,7 @@ const SocialLink = ({ href, icon }: SocialLinkProps) => {
 const SocialsLine = () => {
   const isMounted = useIsMounted();
   return (
-    <ul className="fixed bottom-0 left-7 socials-line ">
+    <ul className="fixed bottom-0 hidden left-7 socials-line md:block">
       {isMounted && (
         <IconContext.Provider
           value={{
