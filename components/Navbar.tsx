@@ -2,6 +2,7 @@ import { useTheme } from 'next-themes';
 import React from 'react';
 import { BsMoon } from 'react-icons/bs';
 import { HiSun } from 'react-icons/hi';
+import { useIsMounted } from 'utils/hooks/useIsMounted';
 
 const ThemeToggleButton = ({
   onClick,
@@ -22,22 +23,25 @@ const ThemeToggleButton = ({
 };
 const Navbar = () => {
   const { theme, setTheme } = useTheme();
+  const isMounted = useIsMounted();
   return (
-    <header className="fixed top-0 flex justify-center w-full px-8 py-4">
+    <header className="fixed top-0 flex justify-center w-full px-10 py-6">
       <nav className="flex items-center justify-between flex-1 max-w-[1920px]">
         <div>
           <span className="font-bold">PAOLO TIU</span>
         </div>
+
         <div>
-          {theme === 'light' ? (
-            <ThemeToggleButton onClick={() => setTheme('dark')}>
-              <BsMoon size="1.25rem" />
-            </ThemeToggleButton>
-          ) : (
-            <ThemeToggleButton onClick={() => setTheme('light')}>
-              <HiSun size="1.25rem" />
-            </ThemeToggleButton>
-          )}
+          {isMounted &&
+            (theme === 'light' ? (
+              <ThemeToggleButton onClick={() => setTheme('dark')}>
+                <BsMoon size="1.25rem" />
+              </ThemeToggleButton>
+            ) : (
+              <ThemeToggleButton onClick={() => setTheme('light')}>
+                <HiSun size="1.25rem" />
+              </ThemeToggleButton>
+            ))}
         </div>
       </nav>
     </header>
