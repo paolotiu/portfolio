@@ -21,20 +21,21 @@ export default function Home() {
       <Navbar />
 
       <main>
-        <section className="flex items-center justify-center min-h-screen">
+        <section className="flex items-center justify-center min-h-screen px-11 md:px-24">
           <RoughNotationGroup show={isFontReady}>
-            <div className="px-4 space-y-3 mb-28">
+            <div className="space-y-3 mb-28">
               <h1 className="heading">
                 Hey, I&apos;m{' '}
-                <RoughNotation
-                  type="underline"
-                  padding={[0, 0, -8, 0]}
-                  color={colors[0]}
-                  animationDuration={800}
-                  strokeWidth={2}
-                >
-                  Paolo Tiu
-                </RoughNotation>
+                <span className="whitespace-nowrap">
+                  <RoughNotation
+                    type="underline"
+                    padding={[0, 0, -8, 0]}
+                    color={colors[0]}
+                    animationDuration={800}
+                  >
+                    Paolo Tiu
+                  </RoughNotation>
+                </span>
               </h1>
               <h2 className="heading main text-subtext">
                 I like making cool stuff
