@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "autoprefixer": "^10.2.6",
+    "clsx": "^1.1.1",
     "eslint-config-tiu": "^1.0.2",
     "next": "11.0.0",
     "next-themes": "^0.0.15",
