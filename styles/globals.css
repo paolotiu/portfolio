@@ -10,6 +10,14 @@
   .heading {
     @apply text-4xl font-bold sm:text-5xl md:text-6xl;
   }
+
+  .button {
+    @apply px-4 py-3 font-medium text-white transition-all rounded bg-accent hover:bg-accent-light;
+  }
+
+  .button-secondary {
+    @apply px-4 py-3 font-medium text-white rounded-sm bg-accent;
+  }
 }
 
 .socials-line::after {
