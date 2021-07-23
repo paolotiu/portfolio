@@ -10,6 +10,9 @@ module.exports = {
       },
       colors: {
         subtext: '#A9A8A8',
+        accent: '#3c8bd6',
+        'accent-dark': '#256DB1',
+        'light-black': '#0a090a',
       },
     },
   },
