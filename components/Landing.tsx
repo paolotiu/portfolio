@@ -5,7 +5,6 @@ import React, { useEffect, useState } from 'react';
 import { RoughNotationGroup, RoughNotation } from 'react-rough-notation';
 import Button from './Button';
 import LinkTo from './LinkTo';
-import { RainbowHighlight } from './RainbowHighlight';
 
 const Landing = () => {
   const isFontReady = useIsFontReady();
@@ -15,7 +14,7 @@ const Landing = () => {
     setColors(shuffleArray(HIGHLIGHT_COLORS));
   }, []);
   return (
-    <section className="flex items-center justify-center min-h-screen px-4 md:px-24">
+    <section className="flex items-center justify-center min-h-screen">
       <RoughNotationGroup show={isFontReady}>
         <div className="space-y-3 mb-28">
           <h1 className="heading">
@@ -23,7 +22,8 @@ const Landing = () => {
             <span className="whitespace-nowrap">
               <RoughNotation
                 type="underline"
-                padding={[0, 0, -8, 0]}
+                padding={[0, 1, -8, 1]}
+                strokeWidth={2}
                 color={colors[0]}
                 animationDuration={800}
               >
@@ -37,10 +37,7 @@ const Landing = () => {
 
           <p className="max-w-2xl pt-3 md:text-lg">
             I’m a developer specializing in building products with amazing{' '}
-            <RainbowHighlight color={colors[1]}>performace</RainbowHighlight>,{' '}
-            <RainbowHighlight color={colors[2]}>experiences</RainbowHighlight>,
-            and <RainbowHighlight color={colors[3]}>usability</RainbowHighlight>
-            . I would love if you could{' '}
+            performace, experiences, and usability. I would love if you could{' '}
             <LinkTo href="/gruset-book">sign my guestbook!</LinkTo>
           </p>
           <div>
