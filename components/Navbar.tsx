@@ -25,7 +25,7 @@ const Navbar = () => {
   const { theme, setTheme } = useTheme();
   const isMounted = useIsMounted();
   return (
-    <header className="fixed top-0 flex justify-center w-full px-6 py-6 md:px-10">
+    <header className="fixed top-0 flex justify-center w-full px-6 py-6 md:px-10 nav">
       <nav className="flex items-center justify-between flex-1 max-w-[1920px]">
         <div>
           <span className="font-bold">PAOLO TIU</span>

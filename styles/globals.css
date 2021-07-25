@@ -20,6 +20,11 @@
   .button-secondary {
     @apply px-4 py-3 font-medium text-white rounded-sm bg-accent;
   }
+
+  .nav {
+    backdrop-filter: blur(6px);
+    @apply z-10;
+  }
 }
 
 .socials-line::after {
