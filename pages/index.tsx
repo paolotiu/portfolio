@@ -9,7 +9,7 @@ export default function Home() {
     <div>
       <Navbar />
 
-      <main className="flex flex-col items-center px-4 md:px-28">
+      <main className="flex flex-col items-center px-4 lg:px-28">
         <Landing />
         <Projects />
       </main>
