@@ -1,0 +1,9 @@
+.container:hover .arrow {
+  opacity: 1;
+}
+.arrow {
+  opacity: 0;
+  transition: 150ms;
+  margin-top: 2px;
+  stroke-width: 1px;
+}

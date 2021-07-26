@@ -7,5 +7,5 @@
   },
   "extends": ["eslint-config-tiu", "next", "next/core-web-vitals"],
 
-  "ignorePatterns": ["types.ts", "*.js"]
+  "ignorePatterns": ["types.ts", "*.js", "generated/*"]
 }

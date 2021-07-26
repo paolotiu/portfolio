@@ -1,0 +1,16 @@
+overwrite: true
+schema: 'https://api.hashnode.com/'
+documents: 'graphql/**/*.query.ts'
+generates:
+  generated/graphql.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-query'
+    config:
+      fetcher:
+        endpoint: 'https://api.hashnode.com/'
+        fetchParams:
+          headers:
+            content-type: 'application/json'
+      exposeFetcher: true

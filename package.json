@@ -6,22 +6,32 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "gen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
+    "@tailwindcss/line-clamp": "^0.2.1",
     "autoprefixer": "^10.2.6",
     "clsx": "^1.1.1",
+    "dayjs": "^1.10.6",
     "eslint-config-tiu": "^1.0.2",
+    "graphql": "^15.5.1",
+    "graphql-tag": "^2.12.5",
     "next": "11.0.0",
     "next-themes": "^0.0.15",
     "postcss": "^8.3.5",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.2.0",
+    "react-query": "^3.19.1",
     "react-rough-notation": "^1.0.1",
     "tailwindcss": "^2.2.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "1.21.7",
+    "@graphql-codegen/typescript": "1.23.0",
+    "@graphql-codegen/typescript-operations": "1.18.4",
+    "@graphql-codegen/typescript-react-query": "^1.3.5",
     "@types/react": "17.0.11",
     "@typescript-eslint/eslint-plugin": "^4.27.0",
     "@typescript-eslint/parser": "^4.27.0",
