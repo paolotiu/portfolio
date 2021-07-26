@@ -91,7 +91,7 @@ class MyDocument extends Document {
           <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
           <meta name="theme-color" content="#ffffff"></meta>
         </Head>
-        <body className="bg-white dark:bg-light-black">
+        <body className="transition-colors duration-200 bg-white dark:bg-light-black">
           <Main />
           <NextScript />
         </body>

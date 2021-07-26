@@ -32,7 +32,7 @@ const SocialsLine = () => {
           value={{
             size: '1.25rem',
             className:
-              'group-hover:transform group-hover:-translate-y-1 transition-all group-hover:text-accent duration-400',
+              'group-hover:transform group-hover:-translate-y-1 transition-all group-hover:text-accent group-hover:duration-400 duration-200',
           }}
         >
           <SocialLink
