@@ -1,4 +1,5 @@
 import { usePostPreviewQuery } from '@/generated/graphql';
+import clsx from 'clsx';
 import dayjs from 'dayjs';
 // import Link from 'next/link';
 import React from 'react';
@@ -29,23 +30,33 @@ const BlogPreviews = () => {
                 >
                   <div className="grid justify-between gap-8 md:grid-flow-col lg:flex-row">
                     <div className="grid gap-4">
-                      <h3 className="text-xl font-bold transition md:text-2xl group-hover:text-accent">
+                      <h3 className="text-xl font-bold text-gray-900 transition md:text-2xl group-hover:text-accent dark:text-gray-100">
                         {post.title}
                       </h3>
-                      <p className="text-gray-800 max-w-[80ch] line-clamp-3">
+                      <p className="text-gray-800 dark:text-gray-400 max-w-[80ch] line-clamp-3">
                         {post.brief}
                       </p>
                     </div>
 
                     <div>
-                      <span className="text-gray-500">
+                      <span className="text-gray-500 dark:text-gray-300">
                         {dayjs(post.dateAdded).format('ddd, M MMM YYYY')}
                       </span>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-2 group ">
+                  <div
+                    className={clsx(
+                      'flex items-center space-x-[3px] text-gray-800 hover:text-black dark:text-gray-200 dark:hover:text-white group',
+                      styles.btn
+                    )}
+                  >
                     <span className="font-medium ">Read More</span>
-                    <FiArrowRight className={styles.arrow} />
+                    <FiArrowRight
+                      className={clsx(
+                        `group-hover:transform group-hover:translate-x-1`,
+                        styles.arrow
+                      )}
+                    />
                   </div>
                 </a>
                 {/* </Link> */}
