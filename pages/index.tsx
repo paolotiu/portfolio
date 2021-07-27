@@ -5,7 +5,10 @@ import Projects from '@/components/Projects';
 import SocialsLine from '@/components/SocialsLine';
 import { usePostPreviewQuery } from '@/generated/graphql';
 import React from 'react';
+import dynamic from 'next/dynamic';
 import { QueryClient } from 'react-query';
+
+const Subscribe = dynamic(() => import('@/components/Subscribe'));
 
 export default function Home() {
   return (
@@ -16,6 +19,7 @@ export default function Home() {
           <Landing />
           <Projects />
           <BlogPreviews />
+          <Subscribe />
         </main>
       </div>
       <SocialsLine />
