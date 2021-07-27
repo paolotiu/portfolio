@@ -11,12 +11,13 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-
-      <main className="flex flex-col items-center px-4 lg:px-28">
-        <Landing />
-        <Projects />
-        <BlogPreviews />
-      </main>
+      <div className="grid grid-cols-1 px-4 lg:px-28 justify-items-center">
+        <main className="grid items-center max-w-[1200px] w-full">
+          <Landing />
+          <Projects />
+          <BlogPreviews />
+        </main>
+      </div>
       <SocialsLine />
     </div>
   );

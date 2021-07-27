@@ -10,9 +10,9 @@ import styles from './BlogPreviews.module.css';
 const BlogPreviews = () => {
   const postPreviews = usePostPreviewQuery();
   return (
-    <section className=" max-w-[1200px] w-full pt-20">
+    <section className="pt-20">
       <SectionTitle isSecondary>Recent Posts</SectionTitle>
-      <div className="pt-10 ">
+      <div>
         {/** Render first 3 blogs only */}
         {postPreviews.data?.user?.publication?.posts
           ?.slice(0, 2)
