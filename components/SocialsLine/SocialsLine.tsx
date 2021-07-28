@@ -4,6 +4,8 @@ import { IconContext } from 'react-icons';
 import { RiLinkedinLine } from 'react-icons/ri';
 import { useIsMounted } from '@/utils/hooks/useIsMounted';
 import { getElementHeightInView } from '@/utils/getElementHeightInView';
+import clsx from 'clsx';
+import styles from './SocialsLine.module.css';
 
 interface SocialLinkProps {
   icon: React.ReactNode;
@@ -49,7 +51,10 @@ const SocialsLine = () => {
   }, []);
   return (
     <ul
-      className="fixed bottom-0 hidden left-7 socials-line lg:block"
+      className={clsx(
+        'fixed bottom-0 hidden left-7 lg:block',
+        styles['socials-line']
+      )}
       ref={ref}
     >
       {isMounted && (

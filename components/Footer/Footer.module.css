@@ -1,0 +1,16 @@
+.signature {
+  stroke-dasharray: 799;
+  stroke-dashoffset: 799;
+}
+
+.in-view {
+  animation: sign 1.8s ease;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.61, 0.36, 0.42, 0.74);
+}
+
+@keyframes sign {
+  to {
+    stroke-dashoffset: 0;
+  }
+}

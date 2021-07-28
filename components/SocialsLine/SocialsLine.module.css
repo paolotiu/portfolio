@@ -1,0 +1,9 @@
+.socials-line::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 90px;
+  margin: 0px auto;
+  transition: all 0.3s ease;
+  @apply bg-black dark:bg-white;
+}
