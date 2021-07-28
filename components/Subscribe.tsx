@@ -2,10 +2,10 @@ import React from 'react';
 
 const Subscribe = () => {
   return (
-    <div className="pt-10 ">
+    <div className="pt-16 ">
       <div className="p-6 bg-gray-100 rounded dark:bg-gray-800">
         <h3 className="text-xl font-bold">Subscribe to the newsletter</h3>
-        <p className="pt-1 text-sm text-gray-900 dark:text-gray-100">
+        <p className="pt-1 text-sm text-gray-700 dark:text-gray-300">
           Get emails from me about web development, tech, and cool stuff. No
           spam.
         </p>
