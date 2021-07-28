@@ -7,6 +7,7 @@ import { usePostPreviewQuery } from '@/generated/graphql';
 import React from 'react';
 import dynamic from 'next/dynamic';
 import { QueryClient } from 'react-query';
+import Contact from '@/components/Contact';
 
 const Subscribe = dynamic(() => import('@/components/Subscribe'));
 
@@ -19,6 +20,7 @@ export default function Home() {
           <Landing />
           <Projects />
           <BlogPreviews />
+          <Contact />
           <Subscribe />
         </main>
       </div>
