@@ -22,7 +22,9 @@ const SectionTitle = ({ children, isSecondary, subtitle }: Props) => {
       >
         {children}
       </h2>
-      <p className="pt-3 text-gray-400 max-w-[80ch]">{subtitle}</p>
+      <p className="pt-3 text-gray-400 max-w-[80ch] whitespace-pre-line">
+        {subtitle}
+      </p>
     </>
   );
 };

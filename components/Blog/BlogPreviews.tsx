@@ -34,7 +34,7 @@ const BlogPreviews = () => {
                       <h3 className="text-xl font-bold text-gray-900 transition md:text-2xl group-hover:text-accent dark:text-gray-100">
                         {post.title}
                       </h3>
-                      <p className="text-gray-800 dark:text-gray-400 max-w-[80ch] line-clamp-3">
+                      <p className="text-gray-700 dark:text-gray-400 max-w-[80ch] line-clamp-3">
                         {post.brief}
                       </p>
                     </div>
