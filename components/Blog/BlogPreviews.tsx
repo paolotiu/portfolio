@@ -9,6 +9,7 @@ import styles from './BlogPreviews.module.css';
 
 const BlogPreviews = () => {
   const postPreviews = usePostPreviewQuery();
+
   return (
     <section className="pt-20">
       <SectionTitle isSecondary>Recent Posts</SectionTitle>
@@ -40,7 +41,7 @@ const BlogPreviews = () => {
 
                     <div>
                       <span className="text-gray-500 dark:text-gray-300">
-                        {dayjs(post.dateAdded).format('ddd, M MMM YYYY')}
+                        {dayjs(post.dateAdded).format('ddd, D MMM YYYY')}
                       </span>
                     </div>
                   </div>
