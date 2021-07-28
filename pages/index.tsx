@@ -3,12 +3,12 @@ import Landing from '@/components/Landing';
 import Navbar from '@/components/Navbar';
 import Projects from '@/components/Projects';
 import SocialsLine from '@/components/SocialsLine';
-import { usePostPreviewQuery } from '@/generated/graphql';
+import { usePostPreviewsQuery } from '@/generated/graphql';
 import React from 'react';
 import dynamic from 'next/dynamic';
 import { QueryClient } from 'react-query';
 import Contact from '@/components/Contact';
-import Footer from '@/components/Footer';
+import { dehydrate } from 'react-query/hydration';
 
 const Subscribe = dynamic(() => import('@/components/Subscribe'));
 
@@ -34,11 +34,14 @@ export default function Home() {
 export const getStaticProps = async () => {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery('postsPreview', () =>
-    usePostPreviewQuery.fetcher()
+  await queryClient.prefetchQuery(
+    ['postPreviews', null],
+    usePostPreviewsQuery.fetcher()
   );
 
   return {
-    props: {},
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
   };
 };

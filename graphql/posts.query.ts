@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
-export const postPreview = gql`
-  query postPreview {
+export const postPreviews = gql`
+  query postPreviews {
     user(username: "Tiu") {
       publication {
         posts {

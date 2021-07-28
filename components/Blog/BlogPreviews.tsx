@@ -1,4 +1,4 @@
-import { usePostPreviewQuery } from '@/generated/graphql';
+import { usePostPreviewsQuery } from '@/generated/graphql';
 import clsx from 'clsx';
 import dayjs from 'dayjs';
 // import Link from 'next/link';
@@ -8,7 +8,7 @@ import SectionTitle from '../SectionTitle';
 import styles from './BlogPreviews.module.css';
 
 const BlogPreviews = () => {
-  const postPreviews = usePostPreviewQuery();
+  const postPreviews = usePostPreviewsQuery();
 
   return (
     <section className="pt-20">

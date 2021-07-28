@@ -625,10 +625,10 @@ export type IsRepublished = {
   originalArticleURL: Scalars['String'];
 };
 
-export type PostPreviewQueryVariables = Exact<{ [key: string]: never; }>;
+export type PostPreviewsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type PostPreviewQuery = (
+export type PostPreviewsQuery = (
   { __typename?: 'Query' }
   & { user?: Maybe<(
     { __typename?: 'User' }
@@ -643,8 +643,8 @@ export type PostPreviewQuery = (
 );
 
 
-export const PostPreviewDocument = `
-    query postPreview {
+export const PostPreviewsDocument = `
+    query postPreviews {
   user(username: "Tiu") {
     publication {
       posts {
@@ -658,16 +658,16 @@ export const PostPreviewDocument = `
   }
 }
     `;
-export const usePostPreviewQuery = <
-      TData = PostPreviewQuery,
+export const usePostPreviewsQuery = <
+      TData = PostPreviewsQuery,
       TError = unknown
     >(
-      variables?: PostPreviewQueryVariables, 
-      options?: UseQueryOptions<PostPreviewQuery, TError, TData>
+      variables?: PostPreviewsQueryVariables, 
+      options?: UseQueryOptions<PostPreviewsQuery, TError, TData>
     ) => 
-    useQuery<PostPreviewQuery, TError, TData>(
-      ['postPreview', variables],
-      fetcher<PostPreviewQuery, PostPreviewQueryVariables>(PostPreviewDocument, variables),
+    useQuery<PostPreviewsQuery, TError, TData>(
+      ['postPreviews', variables],
+      fetcher<PostPreviewsQuery, PostPreviewsQueryVariables>(PostPreviewsDocument, variables),
       options
     );
-usePostPreviewQuery.fetcher = (variables?: PostPreviewQueryVariables) => fetcher<PostPreviewQuery, PostPreviewQueryVariables>(PostPreviewDocument, variables)
+usePostPreviewsQuery.fetcher = (variables?: PostPreviewsQueryVariables) => fetcher<PostPreviewsQuery, PostPreviewsQueryVariables>(PostPreviewsDocument, variables)
