@@ -16,7 +16,7 @@ const Landing = () => {
   return (
     <section className="flex items-center justify-center min-h-screen">
       <RoughNotationGroup show={isFontReady}>
-        <div className="space-y-3 mb-28">
+        <div className="mb-48 space-y-3">
           <h1 className="heading">
             Hey, I&apos;m{' '}
             <span className="whitespace-nowrap">
