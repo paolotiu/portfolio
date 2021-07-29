@@ -12,6 +12,7 @@
   "dependencies": {
     "@tailwindcss/line-clamp": "^0.2.1",
     "autoprefixer": "^10.2.6",
+    "axios": "^0.21.1",
     "clsx": "^1.1.1",
     "dayjs": "^1.10.6",
     "eslint-config-tiu": "^1.0.2",
@@ -22,6 +23,7 @@
     "postcss": "^8.3.5",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-hook-form": "^7.12.1",
     "react-icons": "^4.2.0",
     "react-intersection-observer": "^8.32.0",
     "react-query": "^3.19.1",
@@ -46,6 +48,7 @@
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.8",
     "prettier": "^2.3.1",
+    "ts-morph": "^11.0.3",
     "typescript": "4.3.4"
   }
 }

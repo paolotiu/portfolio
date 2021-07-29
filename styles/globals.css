@@ -25,4 +25,12 @@
     backdrop-filter: blur(6px);
     @apply z-10;
   }
+
+  .input {
+    @apply block w-full px-4 py-3 text-gray-900 bg-white rounded-md shadow-sm focus:ring-gray-500 focus:ring-2 focus:outline-none dark:bg-gray-900 dark:text-gray-100;
+  }
+
+  .label {
+    @apply block text-sm text-gray-500;
+  }
 }
