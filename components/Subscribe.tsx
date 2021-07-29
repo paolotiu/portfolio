@@ -51,15 +51,16 @@ const Subscribe = () => {
         Thank you for subscribing!
       </p>
     ),
-    idle: <p className="text-xs text-gray-700"> 1200 subscribers</p>,
+    idle: (
+      <p className="text-xs text-gray-700 dark:text-gray-300">No spam. Ever.</p>
+    ),
   };
   return (
     <div className="pt-16 ">
       <div className="p-6 bg-gray-100 rounded dark:bg-gray-800">
         <h3 className="text-xl font-bold">Subscribe to the newsletter</h3>
         <p className="pt-1 text-sm text-gray-700 dark:text-gray-300">
-          Get emails from me about web development, tech, and cool stuff. No
-          spam.
+          Get emails from me about web development, tech, and cool stuff.
         </p>
 
         <form className="pt-4 " onSubmit={handleSubmit(onSubmit)}>
