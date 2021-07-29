@@ -52,7 +52,7 @@ const SocialsLine = () => {
   return (
     <ul
       className={clsx(
-        'fixed bottom-0 hidden left-7 lg:block',
+        'fixed bottom-0 hidden left-7 lg:block after:bg-black dark:after:bg-white',
         styles['socials-line']
       )}
       ref={ref}
