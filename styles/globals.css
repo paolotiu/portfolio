@@ -34,3 +34,16 @@
     @apply block text-sm text-gray-500;
   }
 }
+
+/* .dark input:-webkit-autofill,
+.dark input:-webkit-autofill:hover,
+.dark input:-webkit-autofill:focus,
+.dark input:-webkit-autofill:active {
+  --tw-bg-opacity: 1;
+  -webkit-box-shadow: 0 0 0 30px rgba(24, 24, 27, var(--tw-bg-opacity)) inset !important;
+}
+
+/*Change text in autofill textbox*/
+input:-webkit-autofill {
+  -webkit-text-fill-color: black !important;
+}

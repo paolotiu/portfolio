@@ -51,7 +51,7 @@ const Subscribe = () => {
         Thank you for subscribing!
       </p>
     ),
-    idle: <p className="text-sm text-gray-700"> 1200 subscribers</p>,
+    idle: <p className="text-xs text-gray-700"> 1200 subscribers</p>,
   };
   return (
     <div className="pt-16 ">
@@ -63,31 +63,25 @@ const Subscribe = () => {
         </p>
 
         <form className="pt-4 " onSubmit={handleSubmit(onSubmit)}>
-          <div className="grid  md:grid-cols-[2fr,3fr,1fr] gap-5">
-            <div>
-              <InputWithLabel
-                aria-label="First name for newsletter"
-                autoComplete="first-name"
-                placeholder="Paolo"
-                required
-                label="First Name"
-                {...register('firstName', { required: true })}
-              />
-            </div>
+          <div className="grid  md:grid-cols-[2fr,3fr,1fr] gap-5 max-w-3xl">
+            <InputWithLabel
+              aria-label="First name for newsletter"
+              autoComplete="first-name"
+              placeholder="Paolo"
+              required
+              label="First Name"
+              {...register('firstName', { required: true })}
+            />
 
-            <div className="relative max-w-lg">
-              <div>
-                <InputWithLabel
-                  aria-label="Email for newsletter"
-                  autoComplete="email"
-                  type="email"
-                  placeholder="you@email.com"
-                  label="Email"
-                  required
-                  {...register('email', { required: true })}
-                />
-              </div>
-            </div>
+            <InputWithLabel
+              aria-label="Email for newsletter"
+              autoComplete="email"
+              type="email"
+              placeholder="you@email.com"
+              label="Email"
+              required
+              {...register('email', { required: true })}
+            />
 
             <button
               type="submit"
