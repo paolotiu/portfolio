@@ -22,8 +22,9 @@ const ThemeToggleButton = ({
   );
 };
 const Navbar = () => {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const isMounted = useIsMounted();
+
   return (
     <header className="fixed top-0 flex justify-center w-full px-6 py-6 md:px-10 nav">
       <nav className="flex items-center justify-between flex-1 max-w-[1920px]">
@@ -33,7 +34,7 @@ const Navbar = () => {
 
         <div>
           {isMounted &&
-            (theme === 'light' ? (
+            (resolvedTheme === 'light' ? (
               <ThemeToggleButton onClick={() => setTheme('dark')}>
                 <BsMoon size="1.25rem" />
               </ThemeToggleButton>
