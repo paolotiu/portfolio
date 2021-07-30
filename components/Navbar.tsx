@@ -2,7 +2,7 @@ import { useTheme } from 'next-themes';
 import React from 'react';
 import { BsMoon } from 'react-icons/bs';
 import { HiSun } from 'react-icons/hi';
-import { useIsMounted } from 'utils/hooks/useIsMounted';
+import { useIsMounted } from '@/lib/hooks/useIsMounted';
 
 const ThemeToggleButton = ({
   onClick,

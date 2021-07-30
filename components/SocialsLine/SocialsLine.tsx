@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { VscGithubAlt } from 'react-icons/vsc';
 import { IconContext } from 'react-icons';
 import { RiLinkedinLine } from 'react-icons/ri';
-import { useIsMounted } from '@/utils/hooks/useIsMounted';
-import { getElementHeightInView } from '@/utils/getElementHeightInView';
+import { useIsMounted } from '@/lib/hooks/useIsMounted';
+import { getElementHeightInView } from '@/lib/getElementHeightInView';
 import clsx from 'clsx';
 import styles from './SocialsLine.module.css';
 

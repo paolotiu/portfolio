@@ -1,6 +1,6 @@
-import { HIGHLIGHT_COLORS } from '@/utils/constants';
-import { useIsFontReady } from '@/utils/hooks/useIsFontReady';
-import { shuffleArray } from '@/utils/shuffleArray';
+import { HIGHLIGHT_COLORS } from '@/lib/constants';
+import { useIsFontReady } from '@/lib/hooks/useIsFontReady';
+import { shuffleArray } from '@/lib/shuffleArray';
 import React, { useEffect, useState } from 'react';
 import { RoughNotationGroup, RoughNotation } from 'react-rough-notation';
 import Button from './Button';

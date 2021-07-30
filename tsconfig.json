@@ -17,10 +17,11 @@
     "paths": {
       "@/components/*": ["components/*"],
       "@/styles/*": ["styles/*"],
-      "@/utils/*": ["utils/*"],
+      "@/lib/*": ["lib/*"],
       "@/graphql/*": ["graphql/*"],
       "@/generated/*": ["generated/*"]
-    }
+    },
+    "downlevelIteration": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
