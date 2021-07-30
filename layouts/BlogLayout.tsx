@@ -1,10 +1,12 @@
 import Subscribe from '@/components/Subscribe';
 import { activeHeadingAtom } from '@/lib/jotai';
 import { TOC } from '@/lib/mdx';
+import { getBlogViews, supabase } from '@/lib/supabase';
 import clsx from 'clsx';
 import { useAtom } from 'jotai';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Blog } from '@/types/interfaces';
 import MainLayout from './MainLayout';
 
 interface Props {
@@ -12,6 +14,7 @@ interface Props {
   toc: TOC;
   frontMatter: {
     title: string;
+    slug: string;
   };
 }
 
@@ -38,7 +41,27 @@ const TableOfContents = ({ toc }: { toc: TOC }) => {
     </>
   );
 };
-const BlogLayout = ({ children, toc, frontMatter: { title } }: Props) => {
+const BlogLayout = ({ children, toc, frontMatter: { title, slug } }: Props) => {
+  useEffect(() => {
+    const registerView = async () => {
+      // Check if blog is in database
+      const res = await getBlogViews(slug);
+
+      if (res.data?.length) {
+        // Blog is in db
+        await supabase.rpc('increment', { blog_slug: slug });
+      } else {
+        // Blog isn't in db
+        await supabase.from<Blog>('blog').insert({
+          slug,
+          views: 1,
+        });
+      }
+    };
+
+    registerView();
+  }, [slug]);
+
   return (
     <MainLayout footerClassName="max-w-2xl">
       <div className="relative w-full max-w-2xl m-auto">

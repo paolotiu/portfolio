@@ -75,6 +75,7 @@ export const getFileBySlug = async (type: Type, slug: string) => {
     source,
     frontMatter: {
       ...data,
+      slug,
     },
     toc,
   };

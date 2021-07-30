@@ -19,7 +19,8 @@
       "@/styles/*": ["styles/*"],
       "@/lib/*": ["lib/*"],
       "@/graphql/*": ["graphql/*"],
-      "@/generated/*": ["generated/*"]
+      "@/generated/*": ["generated/*"],
+      "@/types/*": ["types/*"]
     },
     "downlevelIteration": true
   },
