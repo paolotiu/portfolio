@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@tailwindcss/line-clamp": "^0.2.1",
+    "@tailwindcss/typography": "^0.4.1",
     "autoprefixer": "^10.2.6",
     "axios": "^0.21.1",
     "clsx": "^1.1.1",
@@ -18,8 +19,13 @@
     "eslint-config-tiu": "^1.0.2",
     "graphql": "^15.5.1",
     "graphql-tag": "^2.12.5",
+    "gray-matter": "^4.0.3",
+    "jotai": "^1.2.2",
+    "mdx-prism": "0.3.3",
     "next": "11.0.0",
+    "next-mdx-remote": "^3.0.4",
     "next-themes": "^0.0.15",
+    "next-transpile-modules": "^8.0.0",
     "postcss": "^8.3.5",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -28,6 +34,9 @@
     "react-intersection-observer": "^8.32.0",
     "react-query": "^3.19.1",
     "react-rough-notation": "^1.0.1",
+    "remark-autolink-headings": "^6.0.1",
+    "remark-slug": "^6.1.0",
+    "slugify": "^1.6.0",
     "tailwindcss": "^2.2.0"
   },
   "devDependencies": {
@@ -48,7 +57,7 @@
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.8",
     "prettier": "^2.3.1",
-    "ts-morph": "^11.0.3",
+    "rehype": "^11.0.0",
     "typescript": "4.3.4"
   }
 }

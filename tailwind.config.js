@@ -1,7 +1,12 @@
 const colors = require('tailwindcss/colors');
-const { fontFamily } = require('tailwindcss/defaultTheme');
+const { fontFamily, spacing } = require('tailwindcss/defaultTheme');
+
 module.exports = {
-  purge: ['./pages/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
+  purge: [
+    './pages/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './layouts/**/*.{ts,tsx}',
+  ],
   darkMode: 'class', // or 'media' or 'class'
   mode: 'jit',
   theme: {
@@ -19,10 +24,47 @@ module.exports = {
         sky: colors.sky,
         gray: colors.gray,
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            a: {
+              color: '#3c8bd6',
+              '&:hover': {
+                color: '#256DB1',
+              },
+            },
+            ' h2, h3, h4': {
+              'scroll-margin-top': spacing['24'],
+            },
+          },
+        },
+        dark: {
+          css: {
+            color: colors['gray']['300'],
+
+            a: {
+              color: '#5FA0DD',
+              '&:hover': {
+                color: '#3c8bd6',
+              },
+            },
+            'h2,h3,h4': {
+              color: colors['white'],
+              'scroll-margin-top': spacing['24'],
+            },
+            strong: {
+              color: colors['gray']['300'],
+            },
+          },
+        },
+      },
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [require('@tailwindcss/line-clamp')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/line-clamp'),
+  ],
 };

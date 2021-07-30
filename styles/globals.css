@@ -51,3 +51,169 @@
 input:-webkit-autofill {
   -webkit-text-fill-color: black !important;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+.prose .blog-heading {
+  @apply absolute invisible;
+
+  margin-left: -1em;
+  padding-right: 0.5em;
+  width: 80%;
+  max-width: 700px;
+  cursor: pointer;
+}
+
+.prose .toc-link {
+  text-decoration: none;
+  @apply font-normal text-gray-700;
+}
+
+.prose .toc-link.active {
+  @apply font-bold;
+}
+
+.prose .toc-link:hover {
+  @apply text-gray-900;
+}
+
+.blog-heading:hover {
+  @apply visible no-underline;
+}
+
+.prose .blog-heading:after {
+  @apply text-gray-300 dark:text-gray-700;
+  content: '#';
+}
+
+.prose *:hover > .blog-heading {
+  @apply visible no-underline;
+}
+
+.active {
+  @apply font-bold;
+}
+
+/**
+ * Pmndrs theme for JavaScript, CSS and HTML
+ * Loosely based on https://marketplace.visualstudio.com/items?itemName=pmndrs.pmndrs
+ * @author Paul Henschel
+ */
+
+code[class*='language-'],
+pre[class*='language-'] {
+  color: #e4f0fb;
+  background: none;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*='language-'] {
+  padding: 1.75em;
+  margin: 1.5em 0;
+  overflow: auto;
+  @apply rounded;
+}
+
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
+  background: #252b37;
+}
+
+/* Inline code */
+:not(pre) > code[class*='language-'] {
+  padding: 0.1em;
+  white-space: normal;
+  @apply rounded;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #a6accd;
+}
+
+.token.punctuation {
+  color: #e4f0fb;
+}
+
+.token.namespace {
+  opacity: 0.7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #e4f0fb;
+}
+
+.token.boolean,
+.token.number {
+  color: #5de4c7;
+}
+
+.token.selector,
+.token.attr-value,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #5de4c7;
+}
+
+.token.attr-name,
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: #add7ff;
+}
+
+.token.atrule,
+.token.function,
+.token.class-name {
+  color: #5de4c7;
+}
+
+.token.keyword {
+  color: #add7ff;
+}
+
+.token.regex,
+.token.important {
+  color: #fffac2;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}

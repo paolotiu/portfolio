@@ -3,6 +3,7 @@ import React from 'react';
 import { BsMoon } from 'react-icons/bs';
 import { HiSun } from 'react-icons/hi';
 import { useIsMounted } from '@/lib/hooks/useIsMounted';
+import LinkTo from './LinkTo';
 
 const ThemeToggleButton = ({
   onClick,
@@ -28,10 +29,24 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 flex justify-center w-full px-6 py-6 md:px-10 nav">
       <nav className="flex items-center justify-between flex-1 max-w-[1920px]">
-        <div>
-          <span className="font-bold">PAOLO TIU</span>
+        <div className="grid grid-flow-col gap-10">
+          <div>
+            <LinkTo
+              href="/"
+              className="text-current text-black no-underline dark:text-white hover:text-current"
+            >
+              <span className="font-bold ">PAOLO TIU</span>
+            </LinkTo>
+          </div>
+          <div>
+            <LinkTo
+              href="/blog/get-tailwind-intellisense-anywhere"
+              className="text-black no-underline hover:text-current dark:text-white"
+            >
+              Blog
+            </LinkTo>
+          </div>
         </div>
-
         <div>
           {isMounted &&
             (resolvedTheme === 'light' ? (

@@ -1,0 +1,85 @@
+---
+title: 'Get Tailwind Intellisense Anywhere'
+---
+
+As I was evaluating tailwind I there was one thing that pushed me over the edge -- **intellisense**.
+The speed that I can go writing styles for my components, it was bliss. Though once I used other libraries like
+[clsx](https://github.com/lukeed/clsx) or [HeadlessUI](https://headlessui.dev/) I kinda got annoyed by the lack of intellisense. It wasn't _that_ bad, but enough to bug me.
+
+For example HeadlessUI's Transition component:
+![[Pasted image 20210715110235.png]]
+
+Or the clsx library:
+![[Pasted image 20210715110238.png]]
+
+so the question is:
+
+## How to get intellisense?
+
+Luckily after some searching I found out how.
+
+First go open your workspace settings.
+
+![[cmd_palette.png]]
+
+This will create a `settings.json` file under a `.vscode` folder if you don't already have one. You can define rules within it. The one we're interested about is `tailwindCSS.experimental.classRegex`.
+
+In this we define an array of arrays containing regex to match a pattern.
+
+For example using the clsx library:
+
+```json
+{
+  "tailwindCSS.experimental.classRegex": [
+    ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ]
+}
+```
+
+Let's review what happened there.
+
+The first item in the array is an expression to the **container**, and the second expression is to match the **class lists**.
+
+![[Container_Classlists.png]]
+
+**NOTE: Both expressions must contain only one capture group.**
+
+---
+
+If you only have a single class list like the HeadlessUI example, you can specify a single regular expression.
+
+```json
+{
+  "tailwindCSS.experimental.classRegex": [
+    "(?:enter|leave)(?:From|To)?=\\s*(?:\"|')([^(?:\"|')]*)"
+  ]
+}
+```
+
+You can also use multiple expressions for different contexts
+
+```json
+{
+  "tailwindCSS.experimental.classRegex": [
+    ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
+    "(?:enter|leave)(?:From|To)?=\\s*(?:\"|')([^(?:\"|')]*)"
+  ]
+}
+```
+
+---
+
+I know, **regex is hard**, so heres a repo containing multiple use cases.
+https://github.com/paolotiu/tailwind-regex-list
+
+I encourage you to contribute if there are any other use cases that haven't been listed.
+Thank you :)
+
+---
+
+#### Links:
+
+- [Regex List Repo](https://github.com/paolotiu/tailwind-regex-list)
+- [Related Issue](https://github.com/tailwindlabs/tailwindcss-intellisense/issues/129)
+
+---
