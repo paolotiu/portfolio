@@ -36,8 +36,11 @@ const FooterLink = ({
     </LinkTo>
   );
 };
+interface Props {
+  className?: string;
+}
 
-const Footer = () => {
+const Footer = ({ className }: Props) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
   });
@@ -47,7 +50,7 @@ const Footer = () => {
       className="flex justify-center w-full px-4 py-8 mt-10 bg-gray-50 lg:px-28 dark:bg-gray-800 "
       id="footer"
     >
-      <div className="max-w-[1200px] flex-1 flex justify-between items-center">
+      <div className={clsx('footer', className)}>
         <div>
           <LinkTo href="/">
             <svg

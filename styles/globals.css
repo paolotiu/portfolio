@@ -33,6 +33,10 @@
   .label {
     @apply block text-sm text-gray-500;
   }
+
+  .footer {
+    @apply max-w-[1200px] flex-1 flex justify-between items-center;
+  }
 }
 
 /* .dark input:-webkit-autofill,
