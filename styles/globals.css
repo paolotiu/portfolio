@@ -92,6 +92,15 @@ html {
   @apply visible no-underline;
 }
 
+.prose code {
+  color: #5de4c7;
+}
+
+/* inline code */
+.prose :not(pre) > code {
+  @apply text-gray-800 dark:text-gray-200 px-1 py-0.5 border border-gray-100 dark:border-gray-800 rounded-md bg-gray-100 dark:bg-gray-900;
+}
+
 .active {
   @apply font-bold;
 }

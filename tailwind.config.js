@@ -40,20 +40,21 @@ module.exports = {
         },
         dark: {
           css: {
-            color: colors['gray']['300'],
+            color: colors['gray']['200'],
 
             a: {
               color: '#5FA0DD',
               '&:hover': {
                 color: '#3c8bd6',
               },
+              code: { color: colors['blue']['400'] },
             },
             'h2,h3,h4': {
               color: colors['white'],
               'scroll-margin-top': spacing['24'],
             },
             strong: {
-              color: colors['gray']['300'],
+              color: colors['gray']['200'],
             },
           },
         },
