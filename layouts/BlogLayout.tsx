@@ -1,12 +1,13 @@
 import Subscribe from '@/components/Subscribe';
 import { activeHeadingAtom } from '@/lib/jotai';
-import { TOC } from '@/lib/mdx';
+import { TOC } from '@/lib/getTableOfContents';
 import { getBlogViews, supabase } from '@/lib/supabase';
 import clsx from 'clsx';
 import { useAtom } from 'jotai';
 import Link from 'next/link';
 import React, { useEffect } from 'react';
 import { Blog } from '@/types/interfaces';
+import dayjs from 'dayjs';
 import MainLayout from './MainLayout';
 
 interface Props {
@@ -43,7 +44,11 @@ const TableOfContents = ({ toc }: { toc: TOC }) => {
     </>
   );
 };
-const BlogLayout = ({ children, toc, frontMatter: { title, slug } }: Props) => {
+const BlogLayout = ({
+  children,
+  toc,
+  frontMatter: { title, slug, publishedAt },
+}: Props) => {
   useEffect(() => {
     const registerView = async () => {
       // Check if blog is in database
@@ -78,7 +83,9 @@ const BlogLayout = ({ children, toc, frontMatter: { title, slug } }: Props) => {
               {title}
             </h1>
             <div className="flex pt-4 pb-2 text-gray-500 dark:text-gray-400">
-              <span className="text-sm">August 7, 2020</span>
+              <span className="text-sm">
+                {dayjs(new Date(publishedAt)).format('MMMM D, YYYY')}
+              </span>
             </div>
             <hr className="pb-8 " />
             <div className="w-full prose dark:prose-dark max-w-none">

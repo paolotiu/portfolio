@@ -1,7 +1,12 @@
 import { activeHeadingAtom } from '@/lib/jotai';
+import NextImage from 'next/image';
 import { useAtom } from 'jotai';
 import Link from 'next/link';
-import { AnchorHTMLAttributes, DetailedHTMLProps, useEffect } from 'react';
+import React, {
+  AnchorHTMLAttributes,
+  DetailedHTMLProps,
+  useEffect,
+} from 'react';
 import { useInView } from 'react-intersection-observer';
 
 const CustomLink = ({
@@ -50,10 +55,30 @@ const createCustomHeading = (type: 'h2' | 'h3') =>
     );
   };
 
+const CustomImage = ({
+  src,
+  height,
+  width,
+  blurdataurl,
+  ...rest
+}: React.ComponentPropsWithoutRef<'img'> & { blurdataurl: string }) => {
+  return (
+    <NextImage
+      src={src as any}
+      height={height}
+      width={width}
+      {...rest}
+      blurDataURL={blurdataurl as any}
+      placeholder="blur"
+    />
+  );
+};
+
 const MDXComponents = {
   a: CustomLink,
   h2: createCustomHeading('h2'),
   h3: createCustomHeading('h3'),
+  img: CustomImage,
 };
 
 export default MDXComponents;

@@ -3,45 +3,9 @@ import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
-import slugify from 'slugify';
 import mdxPrism from 'mdx-prism';
-
-export type TOC = Array<{
-  title: string;
-  link: string;
-  position: 2 | 3;
-  id: string;
-}>;
-
-// Taken from SimeonGriggs
-// https://github.com/hashicorp/next-mdx-remote/issues/53#issuecomment-725906664
-export function getTableOfContents(content: string) {
-  const regexp = new RegExp(/^(### |## )(.*)\n/, 'gm');
-  const headingsPositionMap = {
-    h2: 2,
-    h3: 3,
-  } as const;
-  const headings = [...content.matchAll(regexp)];
-
-  let tableOfContents: TOC = [];
-
-  if (headings.length) {
-    tableOfContents = headings.map((heading) => {
-      const headingText = heading[2].trim();
-      const headingType = heading[1].trim() === '##' ? 'h2' : 'h3';
-      const headingLink = slugify(headingText, { lower: true, strict: true });
-
-      return {
-        title: headingType === 'h2' ? headingText : `${headingText}`,
-        link: `#${headingLink}`,
-        position: headingsPositionMap[headingType],
-        id: headingLink,
-      };
-    });
-  }
-
-  return tableOfContents;
-}
+import { getTableOfContents } from './getTableOfContents';
+import imageMetadata from './imgToNextImage';
 
 const root = process.cwd();
 
@@ -67,7 +31,7 @@ export const getFileBySlug = async (type: Type, slug: string) => {
           },
         ],
       ],
-      rehypePlugins: [mdxPrism],
+      rehypePlugins: [mdxPrism, imageMetadata],
     },
   });
   const toc = getTableOfContents(content);

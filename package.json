@@ -21,6 +21,7 @@
     "graphql": "^15.5.1",
     "graphql-tag": "^2.12.5",
     "gray-matter": "^4.0.3",
+    "image-size": "^1.0.0",
     "jotai": "^1.2.2",
     "mdx-prism": "0.3.3",
     "next": "11.0.0",
@@ -28,6 +29,7 @@
     "next-plausible": "^2.0.0",
     "next-themes": "^0.0.15",
     "next-transpile-modules": "^8.0.0",
+    "plaiceholder": "^2.0.1",
     "postcss": "^8.3.5",
     "preact": "^10.5.14",
     "react": "17.0.2",
@@ -39,8 +41,10 @@
     "react-rough-notation": "^1.0.1",
     "remark-autolink-headings": "^6.0.1",
     "remark-slug": "^6.1.0",
+    "sharp": "^0.28.3",
     "slugify": "^1.6.0",
-    "tailwindcss": "^2.2.0"
+    "tailwindcss": "^2.2.0",
+    "unist-util-visit": "^4.0.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "1.21.7",

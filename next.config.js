@@ -1,4 +1,5 @@
-module.exports = {
+const withTM = require('next-transpile-modules')(['unist-util-visit']);
+module.exports = withTM({
   reactStrictMode: true,
   webpack: (config, { dev, isServer }) => {
     // Replace React with Preact only in client production build
@@ -12,4 +13,4 @@ module.exports = {
 
     return config;
   },
-};
+});
