@@ -24,6 +24,13 @@ class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#ffffff" />
           <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
           <meta name="theme-color" content="#ffffff"></meta>
+
+          <script
+            async
+            defer
+            data-domain="paolotiu.com"
+            src="https://plausible.paolotiu.com/js/plausible.js"
+          ></script>
         </Head>
         <body className="transition-colors duration-200 bg-white dark:bg-light-black">
           <Main />
