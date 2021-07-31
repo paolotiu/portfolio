@@ -15,6 +15,8 @@ interface Props {
   frontMatter: {
     title: string;
     slug: string;
+    publishedAt: string;
+    tags: string[];
   };
 }
 

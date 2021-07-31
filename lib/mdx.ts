@@ -76,6 +76,7 @@ export const getFileBySlug = async (type: Type, slug: string) => {
     frontMatter: {
       ...data,
       slug,
+      tags: data.tags?.split(','),
     },
     toc,
   };

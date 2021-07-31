@@ -6,6 +6,9 @@
     "project": "./tsconfig.json"
   },
   "extends": ["eslint-config-tiu", "next", "next/core-web-vitals"],
+  "rules": {
+    "jsx-a11y/anchor-is-valid": "off"
+  },
 
   "ignorePatterns": ["types.ts", "*.js", "generated/*"]
 }
