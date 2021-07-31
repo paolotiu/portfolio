@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { VscGithubAlt } from 'react-icons/vsc';
 import { IconContext } from 'react-icons';
-import { RiLinkedinLine } from 'react-icons/ri';
+import { RiLinkedinLine, RiTwitterLine } from 'react-icons/ri';
 import { useIsMounted } from '@/lib/hooks/useIsMounted';
 import { getElementHeightInView } from '@/lib/getElementHeightInView';
 import clsx from 'clsx';
@@ -73,6 +73,10 @@ const SocialsLine = () => {
           <SocialLink
             href="https://linkedin.com/in/paolotiu"
             icon={<RiLinkedinLine />}
+          />
+          <SocialLink
+            href="https://twitter.com/PaoloTiu_"
+            icon={<RiTwitterLine />}
           />
           <SocialLink
             href="https://polywork.paolotiu.com"
