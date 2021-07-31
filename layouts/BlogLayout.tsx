@@ -6,19 +6,14 @@ import clsx from 'clsx';
 import { useAtom } from 'jotai';
 import Link from 'next/link';
 import React, { useEffect } from 'react';
-import { Blog } from '@/types/interfaces';
+import { Blog, FrontMatter } from '@/types/interfaces';
 import dayjs from 'dayjs';
 import MainLayout from './MainLayout';
 
 interface Props {
   children: React.ReactNode;
   toc: TOC;
-  frontMatter: {
-    title: string;
-    slug: string;
-    publishedAt: string;
-    tags: string[];
-  };
+  frontMatter: FrontMatter;
 }
 
 const TableOfContents = ({ toc }: { toc: TOC }) => {

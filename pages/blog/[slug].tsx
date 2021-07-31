@@ -1,5 +1,6 @@
 import MDXComponents from '@/components/MDXComponents';
-import { getFileBySlug, getFiles, TOC } from 'lib/mdx';
+import { TOC } from '@/lib/getTableOfContents';
+import { getFileBySlug, getFiles } from '@/lib/mdx';
 import BlogLayout from 'layouts/BlogLayout';
 import { GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';

@@ -49,3 +49,22 @@ export const getFileBySlug = async (type: Type, slug: string) => {
 export const getFiles = (type: Type) => {
   return fs.readdir(path.join(root, 'data', type));
 };
+
+export async function getAllFilesFrontMatter(type: Type) {
+  const files = await fs.readdir(path.join(root, 'data', type));
+  return Promise.all(
+    files.map(async (slug) => {
+      const source = await fs.readFile(
+        path.join(root, 'data', type, slug),
+        'utf8'
+      );
+
+      const { data } = matter(source);
+
+      return {
+        ...data,
+        slug: slug.replace('.mdx', ''),
+      };
+    })
+  );
+}

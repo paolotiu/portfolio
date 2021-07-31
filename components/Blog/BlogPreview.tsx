@@ -15,7 +15,7 @@ interface Props {
 const BlogPreview = ({ slug, summary, title, publishedAt }: Props) => {
   return (
     <article
-      className={`${styles.container} border-gray-200 first-of-type:border-t-0 border-t`}
+      className={`${styles.container} border-gray-200 dark:border-gray-700 first-of-type:border-t-0 border-t`}
     >
       <Link href={`/blog/${slug}`} passHref>
         <a className="grid gap-4 pt-10 pb-8 group">
@@ -30,7 +30,7 @@ const BlogPreview = ({ slug, summary, title, publishedAt }: Props) => {
             </div>
 
             <div>
-              <span className="text-gray-500 dark:text-gray-300">
+              <span className="text-sm text-gray-500 dark:text-gray-300">
                 {dayjs(publishedAt).format('ddd, D MMM YYYY')}
               </span>
             </div>

@@ -4,7 +4,7 @@ import { shuffleArray } from '@/lib/shuffleArray';
 import React, { useEffect, useState } from 'react';
 import { RoughNotationGroup, RoughNotation } from 'react-rough-notation';
 import Button from './Button';
-import LinkTo from './LinkTo';
+// import LinkTo from './LinkTo';
 
 const Landing = () => {
   const isFontReady = useIsFontReady();
@@ -36,12 +36,15 @@ const Landing = () => {
           </h2>
 
           <p className="max-w-2xl pt-3 md:text-lg">
-            I’m a developer specializing in building products with amazing{' '}
-            performace, experiences, and usability. I would love if you could{' '}
-            <LinkTo href="/gruset-book">sign my guestbook!</LinkTo>
+            I’m a developer specializing in building products with amazing
+            performance, experiences, and usability.
+            {/*  I would love if you could{' '}
+            <LinkTo href="/gruset-book">sign my guestbook!</LinkTo> */}
           </p>
           <div>
-            <Button className="mt-5"> Contact Me</Button>
+            <a href="mailto:me@paolotiu.com">
+              <Button className="mt-5"> Contact Me</Button>
+            </a>
           </div>
         </div>
       </RoughNotationGroup>

@@ -3,3 +3,11 @@ export interface Blog {
   views?: number;
   slug: string;
 }
+
+export interface FrontMatter {
+  slug: string;
+  publishedAt: string;
+  tags: string[];
+  summary: string;
+  title: string;
+}

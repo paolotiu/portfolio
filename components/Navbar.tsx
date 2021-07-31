@@ -40,7 +40,7 @@ const Navbar = () => {
           </div>
           <div>
             <LinkTo
-              href="/blog/get-tailwind-intellisense-anywhere"
+              href="/blog"
               className="text-black no-underline hover:text-current dark:text-white"
             >
               Blog
