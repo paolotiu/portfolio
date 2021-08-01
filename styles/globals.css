@@ -22,8 +22,16 @@
   }
 
   .nav {
+    z-index: 10;
     backdrop-filter: blur(6px);
-    @apply z-10;
+    transition: background-color 0.1 ease-in-out;
+  }
+
+  @supports not (backdrop-filter: none) {
+    .nav {
+      backdrop-filter: none;
+      @apply bg-opacity-100;
+    }
   }
 
   .input {
