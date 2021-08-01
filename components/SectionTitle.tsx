@@ -13,7 +13,7 @@ const SectionTitle = ({ children, isSecondary, subtitle }: Props) => {
       <h2
         className={clsx(
           ` after:flex-1 after:h-[1px] after:bg-black  
-        before:bg-black dark:before:bg-white dark:after:bg-white before:flex-1 sm:before:max-w-[175px] before:h-[1px] before:mr-4 after:ml-4`,
+        before:bg-black dark:before:bg-white dark:after:bg-white before:flex-1 sm:before:max-w-[175px] before:h-[1px] before:mr-4 after:ml-4 dark:text-white`,
           isSecondary
             ? 'after:hidden before:block'
             : 'before:hidden sm:after:hidden sm:before:block',

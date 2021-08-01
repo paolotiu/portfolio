@@ -26,7 +26,7 @@ const TableOfContents = ({ toc }: { toc: TOC }) => {
             <a
               href={heading.link}
               className={clsx(
-                'block my-2 toc-link',
+                'block my-2 toc-link whitespace-nowrap dark:text-white',
                 heading.position === 3 ? 'ml-4' : '',
                 activeHeading === heading.id && 'active'
               )}

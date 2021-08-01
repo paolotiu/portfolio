@@ -55,7 +55,7 @@ const Navbar = () => {
               </ThemeToggleButton>
             ) : (
               <ThemeToggleButton onClick={() => setTheme('light')}>
-                <HiSun size="1.25rem" />
+                <HiSun size="1.25rem" className="text-white" />
               </ThemeToggleButton>
             ))}
         </div>

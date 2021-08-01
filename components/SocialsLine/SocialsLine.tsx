@@ -49,6 +49,7 @@ const SocialsLine = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
   return (
     <ul
       className={clsx(
@@ -62,7 +63,7 @@ const SocialsLine = () => {
           value={{
             size: '1.25rem',
             className:
-              'group-hover:transform group-hover:-translate-y-1 group-hover:text-accent group-hover:duration-400 duration-[.1s] ',
+              'group-hover:transform group-hover:-translate-y-1 group-hover:text-accent group-hover:duration-400 duration-[.1s] dark:text-white',
           }}
         >
           <SocialLink
@@ -84,7 +85,7 @@ const SocialsLine = () => {
               <svg
                 viewBox="0 0 250 250"
                 xmlns="http://www.w3.org/2000/svg"
-                className="duration-[.1s] fill-current group-hover:transform group-hover:-translate-y-1 group-hover:text-accent group-hover:duration-[400] w-5"
+                className="duration-[.1s] fill-current group-hover:transform group-hover:-translate-y-1 group-hover:text-accent group-hover:duration-[400] w-5 dark:text-white"
               >
                 <path
                   fillRule="evenodd"

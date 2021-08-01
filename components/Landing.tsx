@@ -17,7 +17,7 @@ const Landing = () => {
     <section className="flex items-center justify-center min-h-screen">
       <RoughNotationGroup show={isFontReady}>
         <div className="mb-48 space-y-3">
-          <h1 className="heading">
+          <h1 className="heading dark:text-white">
             Hey, I&apos;m{' '}
             <span className="whitespace-nowrap">
               <RoughNotation
@@ -35,7 +35,7 @@ const Landing = () => {
             I like making cool stuff
           </h2>
 
-          <p className="max-w-2xl pt-3 md:text-lg">
+          <p className="max-w-2xl pt-3 md:text-lg dark:text-white">
             I’m a developer specializing in building products with amazing
             performance, experiences, and usability.
             {/*  I would love if you could{' '}

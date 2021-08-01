@@ -12,7 +12,7 @@ const BlogPage = ({ posts }: Props) => {
   return (
     <MainLayout footerClassName="max-w-4xl">
       <div className="w-full max-w-4xl m-auto">
-        <h1 className="pt-5 pb-5 text-4xl font-bold border-b border-gray-200 dark:border-gray-700">
+        <h1 className="pt-5 pb-5 text-4xl font-bold border-b border-gray-200 dark:border-gray-700 dark:text-white">
           Blog
         </h1>
         <section>
