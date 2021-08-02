@@ -27,7 +27,7 @@ const Navbar = () => {
   const isMounted = useIsMounted();
 
   return (
-    <header className="sticky top-0 flex justify-center w-full px-6 py-6 bg-white dark:bg-light-black md:px-10 nav">
+    <header className=" nav">
       <nav className="flex items-center justify-between flex-1 max-w-[1920px]">
         <div className="grid grid-flow-col gap-10">
           <div>
