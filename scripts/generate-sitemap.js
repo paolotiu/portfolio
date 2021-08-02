@@ -2,7 +2,7 @@ const globby = require('globby');
 const prettier = require('prettier');
 const fs = require('fs');
 
-(async () => {
+async function generateSitemap() {
   const pages = await globby([
     'pages/*.tsx',
     'data/**/*.mdx',
@@ -37,4 +37,13 @@ const fs = require('fs');
   });
 
   fs.writeFileSync('public/sitemap.xml', formatted);
-})();
+
+  console.log('Finished generating sitemap');
+}
+
+if (!module.parent) {
+  // Called by itself
+  generateSitemap();
+}
+
+module.exports = generateSitemap;

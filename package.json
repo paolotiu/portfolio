@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "yarn gen:scripts & next build",
     "start": "next start",
     "lint": "next lint",
-    "gen": "graphql-codegen --config codegen.yml"
+    "gen": "graphql-codegen --config codegen.yml",
+    "gen:scripts": "node ./scripts/generate"
   },
   "dependencies": {
     "@supabase/supabase-js": "^1.21.0",
