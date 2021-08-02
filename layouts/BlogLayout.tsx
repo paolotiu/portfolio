@@ -8,6 +8,7 @@ import Link from 'next/link';
 import React, { useEffect } from 'react';
 import { Blog, FrontMatter } from '@/types/interfaces';
 import dayjs from 'dayjs';
+import { NextSeo } from 'next-seo';
 import MainLayout from './MainLayout';
 
 interface Props {
@@ -42,7 +43,7 @@ const TableOfContents = ({ toc }: { toc: TOC }) => {
 const BlogLayout = ({
   children,
   toc,
-  frontMatter: { title, slug, publishedAt },
+  frontMatter: { title, slug, publishedAt, summary, tags, image },
 }: Props) => {
   useEffect(() => {
     const registerView = async () => {
@@ -66,6 +67,21 @@ const BlogLayout = ({
 
   return (
     <MainLayout footerClassName="max-w-2xl">
+      <NextSeo
+        title={`${title} - Paolo Tiu`}
+        description={summary}
+        openGraph={{
+          title: `${title} - Paolo Tiu`,
+          type: 'article',
+          description: summary,
+          images: [{ url: `https://paolotiu.com${image}` }],
+          article: {
+            publishedTime: publishedAt,
+            authors: ['https://paolotiu.com'],
+            tags,
+          },
+        }}
+      />
       <div className="relative w-full max-w-2xl m-auto">
         <div className="relative">
           <aside className="hidden xl:block absolute left-[108%]  text-sm w-[fit-content] h-full">

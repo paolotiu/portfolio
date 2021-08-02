@@ -10,4 +10,5 @@ export interface FrontMatter {
   tags: string[];
   summary: string;
   title: string;
+  image: string;
 }
