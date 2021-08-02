@@ -56,6 +56,14 @@ module.exports = {
             strong: {
               color: colors['gray']['200'],
             },
+            blockquote: {
+              color: colors['gray']['200'],
+            },
+            ul: {
+              li: {
+                '&:before': { backgroundColor: colors['gray']['400'] },
+              },
+            },
           },
         },
       },

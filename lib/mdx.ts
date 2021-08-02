@@ -4,6 +4,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
 import mdxPrism from 'mdx-prism';
+import readingTime from 'reading-time';
 import { getTableOfContents } from './getTableOfContents';
 import imageMetadata from './imgToNextImage';
 
@@ -30,17 +31,27 @@ export const getFileBySlug = async (type: Type, slug: string) => {
             },
           },
         ],
+
+        [
+          {
+            mode: 'button',
+          },
+        ],
+        require('remark-code-titles'),
       ],
       rehypePlugins: [mdxPrism, imageMetadata],
     },
   });
+
   const toc = getTableOfContents(content);
+
   return {
     source,
     frontMatter: {
       ...data,
       slug,
       tags: data.tags?.split(','),
+      readingTime: readingTime(content),
     },
     toc,
   };

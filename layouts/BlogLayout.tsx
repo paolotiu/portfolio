@@ -62,7 +62,9 @@ const BlogLayout = ({
       }
     };
 
-    registerView();
+    if (process.env.NODE_ENV !== 'development') {
+      registerView();
+    }
   }, [slug]);
 
   return (

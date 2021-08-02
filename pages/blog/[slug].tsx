@@ -2,6 +2,7 @@ import MDXComponents from '@/components/MDXComponents';
 import { TOC } from '@/lib/getTableOfContents';
 import { getFileBySlug, getFiles } from '@/lib/mdx';
 import BlogLayout from 'layouts/BlogLayout';
+import { CodeSandbox } from 'mdx-embed';
 import { GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote/dist/types';
@@ -16,7 +17,7 @@ interface Props {
 const BlogPage = ({ source, toc, frontMatter }: Props) => {
   return (
     <BlogLayout toc={toc} frontMatter={frontMatter}>
-      <MDXRemote {...source} components={MDXComponents} />
+      <MDXRemote {...source} components={{ ...MDXComponents, CodeSandbox }} />
     </BlogLayout>
   );
 };
