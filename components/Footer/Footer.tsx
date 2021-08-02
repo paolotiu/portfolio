@@ -80,6 +80,7 @@ function Signature() {
       }, 2000);
     }
   }, [inView, setShouldAnimateSignature]);
+
   return (
     <svg
       ref={ref}
@@ -87,11 +88,10 @@ function Signature() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={clsx(
-        'h-auto text-black stroke-current w-14 dark:text-white stroke-2 transition-all opacity-70 cursor-pointer hover:opacity-90',
-
-        shouldAnimateSignature && styles.signature,
+        'h-auto text-black stroke-current w-14 dark:text-white stroke-2 transition-all opacity-70 cursor-pointer hover:opacity-90 ',
         {
           [styles['in-view']]: shouldAnimateSignature && inView,
+          [styles.signature]: shouldAnimateSignature && inView,
         }
       )}
     >
