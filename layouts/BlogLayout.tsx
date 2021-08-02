@@ -40,10 +40,15 @@ const TableOfContents = ({ toc }: { toc: TOC }) => {
     </>
   );
 };
+
+const baseUrl =
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:3000'
+    : 'https://paolotiu.com';
 const BlogLayout = ({
   children,
   toc,
-  frontMatter: { title, slug, publishedAt, summary, tags, image },
+  frontMatter: { title, slug, publishedAt, summary, tags, image, readingTime },
 }: Props) => {
   useEffect(() => {
     const registerView = async () => {
@@ -76,7 +81,7 @@ const BlogLayout = ({
           title: `${title} - Paolo Tiu`,
           type: 'article',
           description: summary,
-          images: [{ url: `https://paolotiu.com${image}` }],
+          images: [{ url: `${baseUrl}${image}` }],
           article: {
             publishedTime: publishedAt,
             authors: ['https://paolotiu.com'],
@@ -95,10 +100,9 @@ const BlogLayout = ({
             <h1 className="text-3xl font-bold text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
               {title}
             </h1>
-            <div className="flex pt-4 pb-2 text-gray-500 dark:text-gray-400">
-              <span className="text-sm">
-                {dayjs(new Date(publishedAt)).format('MMMM D, YYYY')}
-              </span>
+            <div className="flex justify-between pt-4 pb-2 text-sm text-gray-500 dark:text-gray-400">
+              <span>{dayjs(new Date(publishedAt)).format('MMMM D, YYYY')}</span>
+              <span>{readingTime.text}</span>
             </div>
             <hr className="pb-8 " />
             <div className="w-full prose dark:prose-dark max-w-none">
