@@ -51,7 +51,7 @@ const Footer = ({ className }: Props) => {
       >
         <div className={clsx('footer', className)}>
           <div>
-            <LinkTo href="/">
+            <LinkTo href="/" aria-label="Signature">
               <Signature />
             </LinkTo>
           </div>

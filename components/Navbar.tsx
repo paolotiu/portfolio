@@ -8,15 +8,14 @@ import LinkTo from './LinkTo';
 const ThemeToggleButton = ({
   onClick,
   children,
-}: {
-  onClick: () => void;
-  children: React.ReactNode;
-}) => {
+  ...rest
+}: React.ComponentPropsWithoutRef<'button'>) => {
   return (
     <button
       onClick={onClick}
       type="button"
       className="p-2 rounded focus:outline-none focus:ring-2 focus:ring-gray-200 hover:bg-gray-100 dark:focus:ring-gray-500 dark:hover:bg-gray-700"
+      {...rest}
     >
       {children}
     </button>
@@ -50,12 +49,19 @@ const Navbar = () => {
         <div>
           {isMounted &&
             (resolvedTheme === 'light' ? (
-              <ThemeToggleButton onClick={() => setTheme('dark')}>
+              <ThemeToggleButton
+                onClick={() => setTheme('dark')}
+                aria-label="Dark mode toggle"
+              >
                 <BsMoon size="1.25rem" />
               </ThemeToggleButton>
             ) : (
               <ThemeToggleButton onClick={() => setTheme('light')}>
-                <HiSun size="1.25rem" className="text-white" />
+                <HiSun
+                  size="1.25rem"
+                  className="text-white"
+                  aria-label="Light mode toggle"
+                />
               </ThemeToggleButton>
             ))}
         </div>

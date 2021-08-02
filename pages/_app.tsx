@@ -24,6 +24,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Hydrate state={pageProps.dehydratedState}>
           <DefaultSeo
             title={meta.title}
+            description={meta.description}
             openGraph={{
               type: 'website',
               description: meta.description,
