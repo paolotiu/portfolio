@@ -88,7 +88,7 @@ const Subscribe = () => {
 
             <button
               type="submit"
-              className="px-4 mt-2 md:mt-[22px] py-2 font-bold text-white bg-gray-400 rounded right-1 top-1 dark:bg-gray-700 focus:outline-none dark:hover:bg-gray-600 hover:bg-gray-300 hover:transition-colors flex justify-center items-center "
+              className="px-4 mt-2 md:mt-[22px] py-2 font-bold text-white bg-gray-400 rounded right-1 top-1 dark:bg-gray-700 focus:outline-none dark:hover:bg-gray-600 hover:bg-gray-400/80 hover:transition-colors flex justify-center items-center "
             >
               {isSubmitting ? (
                 <FiLoader className="h-6 text-gray-500 animate-spin" />
