@@ -1,0 +1,222 @@
+---
+title: '👻 Jotai - State Simply Managed'
+publishedAt: '2021-08-02'
+summary: 'An introduction to Jotai and why you should consider using it.'
+tags: 'react,state'
+image: '/blog/jotai-simple-state/og.png'
+---
+
+As I refine my stack more and more, one of the values I look for is **simplicity**.
+Simplicity allows me to move quick and iterate much faster. Jotai provides that for me.
+
+## Why Jotai?
+
+With so many state management libraries out there, why should Jotai even be considered?
+
+### Structure
+
+Jotai structures state in a **bottom-up** approach which consists of atoms.
+This is contrary to the way redux/zustand structures their state (a **top-down** approach).
+Your prefrence may vary, but the way Jotai does it is more straightforward to me.
+
+![Top down versus bottom up](/blog/jotai-simple-state/top-down-bottom-up.png)
+
+### Setup
+
+Using Jotai for the first time is quick --- **_very quick_**. Actually, let me show you.
+
+#### First create a primitive atom
+
+```ts:jotai.ts
+import { atom } from 'jotai';
+
+const countAtom = atom(0);
+```
+
+#### Then use that atom anywhere in your component
+
+It works as you would expect `useState` to work.
+
+```ts:Counter.tsx
+import { countAtom } from '../jotai.ts'
+
+function Counter() {
+  const [count, setCount] = useAtom(countAtom)
+  return (
+    <h1>
+      {count}
+      <button onClick={() => setCount(c => c + 1)}>one up</button>
+      // ...rest of code here
+```
+
+### Performance
+
+Jotai was born to solve the extra re-render issue in React.
+Though most of the time this won't be an issue when using any popular state management libraries, it's still good.
+
+#### Benchmarks
+
+This benchmark was ran my machine with Ryzen 5 2600, Windows 11 Insiders Preview inside WSL2.
+The write scores are low compared to the original benchmarks.
+Most likely it's either because I'm running it inside WSL2, or its a machine difference.
+To see the benchmarks ran on another machine go to this [pull request](https://github.com/pmndrs/jotai/pull/486#issuecomment-845611351)
+
+| type  | atoms | ops/s     |
+| ----- | ----- | --------- |
+| read  | 100   | 6 519 582 |
+| read  | 1000  | 6 524 333 |
+| read  | 10000 | 6 594 886 |
+| write | 100   | 394 417   |
+| write | 1000  | 400 393   |
+| write | 10000 | 414 026   |
+
+### Extra
+
+There are a few more things as to why you should consider Jotai.
+
+- Typescript oriented
+- No string keys needed
+- Lightweight (2.4kB minfied + gzipped)
+- The mascot (it's cute c'mon)
+
+## Getting Started
+
+### Atoms
+
+Atoms are at the core of Jotai,the building blocks to create your state.
+I think the [docs](https://docs.pmnd.rs/jotai/basics/primitives) says it best.
+
+> State in Jotai is a set of atoms. An atom is a piece of state. Unlike useState in React, atoms are not tied to specific components.
+
+### Primitive atoms
+
+These atoms are as simple as it gets. Just pass an initial value.
+
+```ts
+import { atom } from 'jotai';
+
+const countAtom = atom(0);
+```
+
+### Derived atoms
+
+Derived atoms are atoms that depend on other atoms.
+Whenever the atoms they depend on changes the value of these atoms also update.
+
+There are three types of derived atoms:
+
+- Read-only atom
+- Write-only atom
+- Read-Write atom
+
+To create a derived atom we must pass a read function and an optional write function.
+
+```ts
+const readOnlyAtom = atom((get) => get(countAtom) * 2);
+
+const writeOnlyAtom = atom(
+  null, // it's a convention to pass `null` for the first argument
+  (get, set, update) => {
+    // `update` is any single value we receive for updating this atom
+    // It can be an object, string, int, etc.
+    set(countAtom, get(countAtom) - update.value);
+  }
+);
+
+const readWriteAtom = atom(
+  (get) => get(countAtom) * 2,
+  (get, set, newValue) => {
+    set(countAtom, newValue / 2);
+    // you can set as many atoms as you want at the same time
+  }
+);
+```
+
+The `get` is used to read other atom values. It reacts to changes of its dependencies.
+
+The `set` is used to write to write an atom value.
+It will invoke the write function of the target atom.
+
+### Note
+
+The value returned by the `atom` function doesn't hold any state.
+It creates an atom config. We call these atoms, but it's important to know that these **do not** hold any state.
+We'll see why in our next point.
+
+### Provider
+
+Provider is used to provide state for a component sub tree.
+This means that we can use atoms in different locations, and they can have different values.
+Providers can be used for multiple subtrees, even nested. It works just like the React Context would.
+
+A Provider is not needed though, without it the atom will use default state it was defined with.
+
+Here's an example for different Provider situations:
+
+[![Edit Multiple Providers](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/multiple-providers-xp5j7?fontsize=14&hidenavigation=1&theme=dark)
+
+## Other Goodies
+
+### atomWithStorage
+
+Jotai's minimalistic core API allows various utils to be built based on it.
+My favorite is [atomWithStorage](https://docs.pmnd.rs/jotai/api/utils#atom-with-storage).
+It allows you to persist values in `localStorage`, `sessionStorage`, or for React Native `AsyncStorage`.
+I find it to be perfect for theming.
+
+The first parameter is the key within your chosen storage.
+
+The second parameter is the initial value
+
+```ts
+import { useAtom } from 'jotai';
+import { atomWithStorage } from 'jotai/utils';
+
+const themeAtom = atomWithStorage<'dark' | 'light'>('theme', 'light');
+
+const Page = () => {
+  const [theme, setTheme] = useAtom(themeAtom);
+
+  return (
+    <>
+      <h1>Welcome to {theme} mode!</h1>
+      <button
+        onClick={() =>
+          setDarkMode((prev) => (prev === 'dark' ? 'light' : 'dark'))
+        }
+      >
+        toggle theme
+      </button>
+    </>
+  );
+};
+```
+
+### Integrations
+
+Jotai can integrate with other popular libraries.
+Here are some notable ones:
+
+- [React Query](https://docs.pmnd.rs/jotai/integrations/query)
+- [URQL](https://docs.pmnd.rs/jotai/integrations/urql)
+- [Zustand](https://docs.pmnd.rs/jotai/integrations/zustand)
+- [Redux](https://docs.pmnd.rs/jotai/integrations/redux)
+- [XState](https://docs.pmnd.rs/jotai/integrations/xstate)
+
+### Getting Async
+
+Jotai has first class support for async. It fully leverages React Suspense.
+They have [fantastic docs](https://docs.pmnd.rs/jotai/basics/async). Check it out!
+
+## Conclusion
+
+Jotai is my choice for global state management. Pair it with react-query, and boom!
+You have straightforward state management all throughout. Don't be fooled though, simple does not mean powerful.
+
+How about you? What's your state management solution?
+You can [contact me](mailto:me@paolotiu.com) any time if you have questions or just wanna chat!
+
+## Resources
+
+- [Jotai Docs](https://docs.pmnd.rs/jotai/introduction)
+- [Daishi Kato - Author of Jotai](https://twitter.com/dai_shi)
