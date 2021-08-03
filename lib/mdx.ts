@@ -70,11 +70,13 @@ export async function getAllFilesFrontMatter(type: Type) {
         'utf8'
       );
 
-      const { data } = matter(source);
+      const { data, content } = matter(source);
 
       return {
         ...data,
         slug: slug.replace('.mdx', ''),
+        tags: data.tags?.split(','),
+        readingTime: readingTime(content),
       };
     })
   );

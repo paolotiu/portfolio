@@ -9,6 +9,9 @@ interface Props {
 }
 
 const BlogPage = ({ posts }: Props) => {
+  const sortedPosts = posts.sort(
+    (a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
+  );
   return (
     <MainLayout footerClassName="max-w-4xl">
       <div className="w-full max-w-4xl m-auto">
@@ -16,7 +19,7 @@ const BlogPage = ({ posts }: Props) => {
           Blog
         </h1>
         <section>
-          {posts.map((post) => (
+          {sortedPosts.map((post) => (
             <BlogPreview
               key={post.slug}
               publishedAt={post.publishedAt}

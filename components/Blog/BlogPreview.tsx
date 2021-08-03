@@ -29,10 +29,8 @@ const BlogPreview = ({ slug, summary, title, publishedAt }: Props) => {
               </p>
             </div>
 
-            <div>
-              <span className="text-sm text-gray-500 dark:text-gray-300">
-                {dayjs(publishedAt).format('ddd, D MMM YYYY')}
-              </span>
+            <div className="text-sm text-gray-500 dark:text-gray-300">
+              <p>{dayjs(publishedAt).format('ddd, D MMM YYYY')}</p>
             </div>
           </div>
           <div
