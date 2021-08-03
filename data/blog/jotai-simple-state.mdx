@@ -17,7 +17,7 @@ With so many state management libraries out there, why should Jotai even be cons
 
 Jotai structures state in a **bottom-up** approach which consists of atoms.
 This is contrary to the way redux/zustand structures their state (a **top-down** approach).
-Your prefrence may vary, but the way Jotai does it is more straightforward to me.
+Your preference may vary, but the way Jotai does it is more straightforward to me.
 
 ![Top down versus bottom up](/blog/jotai-simple-state/top-down-bottom-up.png)
 
@@ -56,10 +56,10 @@ Though most of the time this won't be an issue when using any popular state mana
 
 #### Benchmarks
 
-This benchmark was ran my machine with Ryzen 5 2600, Windows 11 Insiders Preview inside WSL2.
+This benchmark ran my machine with Ryzen 5 2600, Windows 11 Insiders Preview inside WSL2.
 The write scores are low compared to the original benchmarks.
 Most likely it's either because I'm running it inside WSL2, or its a machine difference.
-To see the benchmarks ran on another machine go to this [pull request](https://github.com/pmndrs/jotai/pull/486#issuecomment-845611351)
+To see the benchmarks ran on another machine go to this [pull request](https://github.com/pmndrs/jotai/pull/486#issuecomment-845611351).
 
 | type  | atoms | ops/s     |
 | ----- | ----- | --------- |
@@ -83,7 +83,7 @@ There are a few more things as to why you should consider Jotai.
 
 ### Atoms
 
-Atoms are at the core of Jotai,the building blocks to create your state.
+Atoms are at the core of Jotai, the building blocks to create your state.
 I think the [docs](https://docs.pmnd.rs/jotai/basics/primitives) says it best.
 
 > State in Jotai is a set of atoms. An atom is a piece of state. Unlike useState in React, atoms are not tied to specific components.
@@ -145,7 +145,7 @@ We'll see why in our next point.
 
 ### Provider
 
-Provider is used to provide state for a component sub tree.
+Provider is used to provide state for a component subtree.
 This means that we can use atoms in different locations, and they can have different values.
 Providers can be used for multiple subtrees, even nested. It works just like the React Context would.
 
@@ -205,7 +205,7 @@ Here are some notable ones:
 
 ### Getting Async
 
-Jotai has first class support for async. It fully leverages React Suspense.
+Jotai has first-class support for async. It fully leverages React Suspense.
 They have [fantastic docs](https://docs.pmnd.rs/jotai/basics/async). Check it out!
 
 ## Conclusion
