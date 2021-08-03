@@ -62,6 +62,10 @@ const CustomImage = ({
   blurdataurl,
   ...rest
 }: React.ComponentPropsWithoutRef<'img'> & { blurdataurl: string }) => {
+  if (!height || !width) {
+    // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
+    return <img src={src} {...rest} />;
+  }
   return (
     <NextImage
       src={src as any}
