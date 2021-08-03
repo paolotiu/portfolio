@@ -91,7 +91,7 @@ const BlogLayout = ({
       />
       <div className="relative w-full max-w-2xl m-auto">
         <div className="relative">
-          <aside className="hidden xl:block absolute left-[108%]  text-sm w-[fit-content] h-full">
+          <aside className="hidden xl:block absolute left-[112%]  text-sm w-[fit-content] h-full">
             <div className="sticky top-28">
               <TableOfContents toc={toc} />
             </div>
