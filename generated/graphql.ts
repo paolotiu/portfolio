@@ -670,4 +670,4 @@ export const usePostPreviewsQuery = <
       fetcher<PostPreviewsQuery, PostPreviewsQueryVariables>(PostPreviewsDocument, variables),
       options
     );
-usePostPreviewsQuery.fetcher = (variables?: PostPreviewsQueryVariables) => fetcher<PostPreviewsQuery, PostPreviewsQueryVariables>(PostPreviewsDocument, variables)
+usePostPreviewsQuery.fetcher = (variables?: PostPreviewsQueryVariables) => fetcher<PostPreviewsQuery, PostPreviewsQueryVariables>(PostPreviewsDocument, variables);
