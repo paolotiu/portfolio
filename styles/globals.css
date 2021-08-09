@@ -109,7 +109,7 @@ html {
 
 /* inline code */
 .prose :not(pre) > code {
-  @apply text-gray-800 dark:text-gray-200 px-1 py-0.5 border border-gray-100 dark:border-gray-800 rounded-md bg-gray-100 dark:bg-gray-900;
+  @apply text-gray-800 dark:text-gray-100 px-1 py-0.5 border border-gray-100 dark:border-gray-800 rounded-md bg-gray-100 dark:bg-gray-900;
 }
 
 .active {
@@ -142,6 +142,12 @@ pre[class*='language-'] {
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
+}
+
+.mdx-marker {
+  @apply bg-gray-600 bg-opacity-50 border-l-4;
+  margin: 0 -1.5rem;
+  padding-left: 1.25rem;
 }
 
 /* Code blocks */
