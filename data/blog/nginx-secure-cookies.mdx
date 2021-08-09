@@ -1,0 +1,65 @@
+---
+title: How to get secure cookies working with Nginx
+publishedAt: '2021-08-9'
+summary: 'Hours of confusion just for one line.'
+tags: 'tips'
+image: '/blog/nginx-secure-cookies/og.png'
+---
+
+## Background
+
+As I was setting up my Node server in a VPS, I got confused as to why my cookies weren't being set.
+After some time I figured out that it works in the `development` environment, but not in the `production` environment.
+I kept prodding around to find out that when I set the `secure` option to true the cookies weren't being sent.
+
+> Note: I'm using express-sessions my code roughly looks like this.
+
+```ts{10}
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET as string,
+    resave: false,
+    saveUninitialized: false,
+    name: 'sid',
+    store: new RedisStore({ client: redisClient }),
+    proxy: process.env.NODE_ENV === 'production',
+    cookie: {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      maxAge: 1000 * 60 * 60 * 24 * 365, // 1 year
+    },
+  })
+);
+```
+
+After hours of fiddling, researching, failing, and _crying_, I **finally** found out the solution.
+
+## The Solution
+
+Apparently you need to add the directive `proxy_set_header X-Forwarded-Proto https;` to your nginx file.
+
+For example:
+
+```nginx{8}
+location / {
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-NginX-Proxy true;
+
+    proxy_pass http://127.0.0.1:4000/;
+	proxy_set_header X-Forwarded-Proto https;
+}
+```
+
+And that's it! So much confusion just for one line.
+
+## Conclusion
+
+I mainly wrote this article out of frustration of the hours spent, hoping someone else won't go through that.
+
+As always you can follow me on [Twitter](https://twitter.com/PaoloTiu_), and I have a [newsletter](https://buttondown.email/paolotiu) if you're into that.
+
+## Resources
+
+- [Related Github Issue](https://github.com/expressjs/session/issues/281#issuecomment-191359194)
