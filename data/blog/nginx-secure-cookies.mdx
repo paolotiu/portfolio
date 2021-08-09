@@ -32,11 +32,11 @@ app.use(
 );
 ```
 
-After hours of fiddling, researching, failing, and _crying_, I **finally** found out the solution.
+After hours of fiddling, researching, failing, and _crying_, I **finally** found the solution.
 
 ## The Solution
 
-Apparently you need to add the directive `proxy_set_header X-Forwarded-Proto https;` to your nginx file.
+Apparently, you need to add the directive `proxy_set_header X-Forwarded-Proto https;` to your nginx file.
 
 For example:
 
