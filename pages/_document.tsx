@@ -6,11 +6,7 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossOrigin="anonymous"
-          />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&display=swap"
             rel="stylesheet"
@@ -21,13 +17,6 @@ class MyDocument extends Document {
           <link rel="icon" type="image/svg+xml" href="/logo.svg"></link>
           <link rel="alternate icon" href="/favicon-16x-16.png" />
           <meta name="theme-color" content="#ffffff"></meta>
-
-          <script
-            async
-            defer
-            data-domain="paolotiu.com"
-            src="https://plausible.paolotiu.com/js/plausible.js"
-          ></script>
         </Head>
         <body className="transition-colors duration-200 bg-white dark:bg-light-black">
           <Main />

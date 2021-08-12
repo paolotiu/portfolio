@@ -1,5 +1,7 @@
 const withTM = require('next-transpile-modules')(['unist-util-visit']);
-module.exports = withTM({
+const { withPlausibleProxy } = require('next-plausible');
+
+const config = withTM({
   reactStrictMode: true,
   webpack: (config, { dev, isServer }) => {
     // Replace React with Preact only in client production build
@@ -14,3 +16,7 @@ module.exports = withTM({
     return config;
   },
 });
+
+module.exports = withPlausibleProxy({
+  customDomain: 'https://plausible.paolotiu.com',
+})(config);

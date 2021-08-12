@@ -30,7 +30,7 @@
     "mdx-prism": "0.3.3",
     "next": "11.0.0",
     "next-mdx-remote": "^3.0.4",
-    "next-plausible": "^2.0.0",
+    "next-plausible": "^2.1.0",
     "next-seo": "^4.26.0",
     "next-themes": "^0.0.15",
     "next-transpile-modules": "^8.0.0",
