@@ -40,7 +40,11 @@ function MyApp({ Component, pageProps }: AppProps) {
               cardType: 'summary_large_image',
             }}
           />
-          <PlausibleProvider domain="paolotiu.com" customDomain="https://plausible.paolotiu.com">
+          <PlausibleProvider
+            domain="paolotiu.com"
+            customDomain="https://plausible.paolotiu.com"
+            selfHosted
+          >
             <Component {...pageProps} />
           </PlausibleProvider>
         </Hydrate>
