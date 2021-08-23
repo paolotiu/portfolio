@@ -12,8 +12,8 @@ Well, Vercel makes it very easy since they have support for wildcard domains.
 ## What are Wildcard Domains?
 
 You can think of a wildcard domain as a catch-all for subdomains.
-If go to **foo.domain.com** it will go to the same page as **bar.domain.com**.
-Then on the client side you can serve different content for different subdomains. This will make more sense later.
+If I go to **foo.domain.com** it will go to the same page as **bar.domain.com**.
+Then on the client side, you can serve different content for different subdomains. This will make more sense later.
 
 Setting one up on Vercel is super easy and it has built-in HTTPS.
 
@@ -22,7 +22,7 @@ Setting one up on Vercel is super easy and it has built-in HTTPS.
 First, you need to have a domain available. You can buy one from any domain registrar like [namecheap](https://namecheap.com) or [porkbun](https://porkbun.com).
 For this example I'll use shopeetracker.com. It's a throwaway domain that I don't use anymore.
 
-Next go to your projects **Domains** tab, enter a wildcard domain, and follow the instructions stated. For example my domain is shopeetracker.com and I got it from namecheap.
+Next, go to your projects **Domains** tab, enter a wildcard domain, and follow the instructions stated. For example, my domain is shopeetracker.com and I got it from [NameCheap](https://namecheap.com).
 Then I'll input `*.shopeetracker.com` and configure my nameservers.
 
 ![Nameserver Confiugration](/blog/wildcard-domains/nameserver.png)
@@ -31,7 +31,7 @@ Once you have done that you're all set! Pretty easy right?
 
 ## Detecting the subdomain
 
-Detecting the subdomain happens at the client side since we don't have access to the window object in the server side.
+Detecting the subdomain happens at the client side since we don't have access to the window object on the server side.
 Using a simple helper function we can extract the subdomain from the URL.
 
 ```ts:getPageData.ts
@@ -63,7 +63,7 @@ A running example can be found on https://shopeetracker.com, and the source code
 
 ## Conclusion
 
-Providing custom subdomains can make users feel special. And with wildcard domains it can be done quickly.
+Providing custom subdomains can make users feel special. And with wildcard domains, it can be done quickly.
 If you tried this out in any of your projects hit me up on [Twitter](https://twitter.com/PaoloTiu_).
 I also have a [newsletter](https://buttondown.email/paolotiu).
 
