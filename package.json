@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "yarn gen:scripts & next build",
+    "analyze": "ANALYZE=true yarn build",
     "start": "next start",
     "lint": "next lint",
     "gen": "graphql-codegen --config codegen.yml",
@@ -54,6 +55,7 @@
     "unist-util-visit": "^4.0.0"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^11.1.0",
     "@graphql-codegen/cli": "1.21.7",
     "@graphql-codegen/typescript": "1.23.0",
     "@graphql-codegen/typescript-operations": "1.18.4",

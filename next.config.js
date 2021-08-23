@@ -1,4 +1,7 @@
 const withTM = require('next-transpile-modules')(['unist-util-visit']);
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
 const { withPlausibleProxy } = require('next-plausible');
 
 const config = withTM({
@@ -19,4 +22,4 @@ const config = withTM({
 
 module.exports = withPlausibleProxy({
   customDomain: 'https://plausible.paolotiu.com',
-})(config);
+})(withBundleAnalyzer(config));
