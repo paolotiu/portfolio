@@ -1,0 +1,74 @@
+---
+title: 'Make users feel special by giving them their own subdomains.'
+publishedAt: '2021-08-23'
+summary: 'With vercel you can deploy HTTPS-enabled subdomains that your user chooses.'
+tags: 'tips'
+image: '/blog/wildcard-domains/og.png'
+---
+
+Have you ever wondered how to enable users to create their own subdomain? For example _slack workspaces_ (space.slack.com) or _hashnode blogs_ (name.hashnode.dev).
+Well, Vercel makes it very easy since they have support for wildcard domains.
+
+## What are Wildcard Domains?
+
+You can think of a wildcard domain as a catch-all for subdomains.
+If go to **foo.domain.com** it will go to the same page as **bar.domain.com**.
+Then on the client side you can serve different content for different subdomains. This will make more sense later.
+
+Setting one up on Vercel is super easy and it has built-in HTTPS.
+
+## Adding Wildcard Domains
+
+First, you need to have a domain available. You can buy one from any domain registrar like [namecheap](https://namecheap.com) or [porkbun](https://porkbun.com).
+For this example I'll use shopeetracker.com. It's a throwaway domain that I don't use anymore.
+
+Next go to your projects **Domains** tab, enter a wildcard domain, and follow the instructions stated. For example my domain is shopeetracker.com and I got it from namecheap.
+Then I'll input `*.shopeetracker.com` and configure my nameservers.
+
+![Nameserver Confiugration](/blog/wildcard-domains/nameserver.png)
+
+Once you have done that you're all set! Pretty easy right?
+
+## Detecting the subdomain
+
+Detecting the subdomain happens at the client side since we don't have access to the window object in the server side.
+Using a simple helper function we can extract the subdomain from the URL.
+
+```ts:getPageData.ts
+export const getPageData = async () => {
+  const { host } = window.location;
+  const splitHost = host.split('.');
+  const isDev = host.includes('localhost');
+
+  if (splitHost.length === 3 || (isDev && splitHost.length === 2)) {
+    // This is your the subdomain
+    // Ex. if foo.domain.com then page === 'foo'
+    const page = splitHost[0];
+    if (page === 'www') {
+      return null;
+    }
+
+    // You can do your fetching logic here for each subdomain
+
+    return page;
+  }
+
+  return null;
+};
+```
+
+## Demo
+
+A running example can be found on https://shopeetracker.com, and the source code is available in a [Github Repo](https://github.com/paolotiu/wildcard-domains-example).
+
+## Conclusion
+
+Providing custom subdomains can make users feel special. And with wildcard domains it can be done quickly.
+If you tried this out in any of your projects hit me up on [Twitter](https://twitter.com/PaoloTiu_).
+I also have a [newsletter](https://buttondown.email/paolotiu).
+
+## Resources
+
+- [Github Repo](https://github.com/paolotiu/wildcard-domains-example)
+- [Live Website](https://shopeetracker.com)
+- [Vercel's Blog Post](https://vercel.com/blog/wildcard-domains)
