@@ -7,7 +7,8 @@
   },
   "extends": ["eslint-config-tiu", "next", "next/core-web-vitals"],
   "rules": {
-    "jsx-a11y/anchor-is-valid": "off"
+    "jsx-a11y/anchor-is-valid": "off",
+    "import/extensions": "off"
   },
 
   "ignorePatterns": ["types.ts", "*.js", "generated/*"]

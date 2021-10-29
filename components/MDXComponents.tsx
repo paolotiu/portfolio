@@ -1,21 +1,14 @@
-import { activeHeadingAtom } from '@/lib/jotai';
 import NextImage from 'next/image';
 import { useAtom } from 'jotai';
 import Link from 'next/link';
-import React, {
-  AnchorHTMLAttributes,
-  DetailedHTMLProps,
-  useEffect,
-} from 'react';
+import React, { AnchorHTMLAttributes, DetailedHTMLProps, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { activeHeadingAtom } from '@/lib/jotai';
 
 const CustomLink = ({
   href,
   ...props
-}: DetailedHTMLProps<
-  AnchorHTMLAttributes<HTMLAnchorElement>,
-  HTMLAnchorElement
->) => {
+}: DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>) => {
   const isInternal = href && (href.startsWith('/') || href?.startsWith('#'));
 
   if (isInternal) {

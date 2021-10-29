@@ -1,11 +1,11 @@
-import MDXComponents from '@/components/MDXComponents';
-import { TOC } from '@/lib/getTableOfContents';
-import { getFileBySlug, getFiles } from '@/lib/mdx';
 import BlogLayout from 'layouts/BlogLayout';
 import { GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote/dist/types';
 import React from 'react';
+import { getFileBySlug, getFiles } from '@/lib/mdx';
+import { TOC } from '@/lib/getTableOfContents';
+import MDXComponents from '@/components/MDXComponents';
 
 interface Props {
   source: MDXRemoteSerializeResult;

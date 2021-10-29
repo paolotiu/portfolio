@@ -1,17 +1,26 @@
 import { useQuery, UseQueryOptions } from 'react-query';
 export type Maybe<T> = T | null;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type Exact<T extends { [key: string]: unknown }> = {
+  [K in keyof T]: T[K];
+};
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> &
+  { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> &
+  { [SubKey in K]: Maybe<T[SubKey]> };
 
-function fetcher<TData, TVariables>(query: string, variables?: TVariables) {
+function fetcher<TData, TVariables>(
+  endpoint: string,
+  requestInit: RequestInit,
+  query: string,
+  variables?: TVariables
+) {
   return async (): Promise<TData> => {
-    const res = await fetch("https://api.hashnode.com/", {
-      method: "POST",
-      headers: {"content-type":"application/json"},
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      ...requestInit,
       body: JSON.stringify({ query, variables }),
     });
-    
+
     const json = await res.json();
 
     if (json.errors) {
@@ -21,7 +30,7 @@ function fetcher<TData, TVariables>(query: string, variables?: TVariables) {
     }
 
     return json.data;
-  }
+  };
 }
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -31,7 +40,6 @@ export type Scalars = {
   Int: number;
   Float: number;
 };
-
 
 export type Contributor = {
   __typename?: 'Contributor';
@@ -70,7 +78,7 @@ export enum FeedType {
   Community = 'COMMUNITY',
   Best = 'BEST',
   New = 'NEW',
-  Featured = 'FEATURED'
+  Featured = 'FEATURED',
 }
 
 export type FollowUserOutput = MutationOutput & {
@@ -106,16 +114,13 @@ export type Mutation = {
   deleteReply: DeleteOutput;
 };
 
-
 export type MutationFollowUserArgs = {
   userId: Scalars['String'];
 };
 
-
 export type MutationCreateStoryArgs = {
   input: CreateStoryInput;
 };
-
 
 export type MutationCreatePublicationStoryArgs = {
   input: CreateStoryInput;
@@ -123,27 +128,22 @@ export type MutationCreatePublicationStoryArgs = {
   hideFromHashnodeFeed?: Maybe<Scalars['Boolean']>;
 };
 
-
 export type MutationUpdateStoryArgs = {
   postId: Scalars['String'];
   input: UpdateStoryInput;
 };
 
-
 export type MutationReactToStoryArgs = {
   input: ReactToPostInput;
 };
-
 
 export type MutationDeletePostArgs = {
   id: Scalars['String'];
 };
 
-
 export type MutationCreateResponseArgs = {
   input: CreateResponseInput;
 };
-
 
 export type MutationUpdateResponseArgs = {
   responseId: Scalars['String'];
@@ -151,22 +151,18 @@ export type MutationUpdateResponseArgs = {
   contentInMarkdown: Scalars['String'];
 };
 
-
 export type MutationReactToResponseArgs = {
   input: ReactToResponseInput;
 };
-
 
 export type MutationDeleteResponseArgs = {
   responseId: Scalars['String'];
   postId: Scalars['String'];
 };
 
-
 export type MutationCreateReplyArgs = {
   input: CreateReplyInput;
 };
-
 
 export type MutationUpdateReplyArgs = {
   replyId: Scalars['String'];
@@ -175,11 +171,9 @@ export type MutationUpdateReplyArgs = {
   contentInMarkdown: Scalars['String'];
 };
 
-
 export type MutationReactToReplyArgs = {
   input: ReactToReplyInput;
 };
-
 
 export type MutationDeleteReplyArgs = {
   replyId: Scalars['String'];
@@ -281,7 +275,6 @@ export type PostDetailed = {
   responses: Array<Response>;
 };
 
-
 export type PostDetailedResponsesArgs = {
   page?: Maybe<Scalars['Int']>;
 };
@@ -316,7 +309,6 @@ export type Publication = {
   posts?: Maybe<Array<Maybe<Post>>>;
 };
 
-
 export type PublicationPostsArgs = {
   page?: Maybe<Scalars['Int']>;
 };
@@ -334,22 +326,18 @@ export type Query = {
   tagCategories?: Maybe<Array<Maybe<TagCategory>>>;
 };
 
-
 export type QueryUserArgs = {
   username: Scalars['String'];
 };
-
 
 export type QueryStoriesFeedArgs = {
   type: FeedType;
   page?: Maybe<Scalars['Int']>;
 };
 
-
 export type QueryAmasArgs = {
   page?: Maybe<Scalars['Int']>;
 };
-
 
 export type QueryPostArgs = {
   slug: Scalars['String'];
@@ -411,7 +399,7 @@ export enum ReactionName {
   HeartEyes = 'HEART_EYES',
   TakeMyMoney = 'TAKE_MY_MONEY',
   Party = 'PARTY',
-  Rocket = 'ROCKET'
+  Rocket = 'ROCKET',
 }
 
 export type ReactionsAndCount = {
@@ -485,7 +473,6 @@ export type Tag = {
   contributors?: Maybe<TagContributors>;
 };
 
-
 export type TagPostsArgs = {
   filter: TagsPostFilter;
   page?: Maybe<Scalars['Int']>;
@@ -557,7 +544,7 @@ export type TagsInput = {
 export enum TagsPostFilter {
   Hot = 'HOT',
   Recent = 'RECENT',
-  Best = 'BEST'
+  Best = 'BEST',
 }
 
 export type UpdateStoryInput = {
@@ -625,23 +612,28 @@ export type IsRepublished = {
   originalArticleURL: Scalars['String'];
 };
 
-export type PostPreviewsQueryVariables = Exact<{ [key: string]: never; }>;
+export type PostPreviewsQueryVariables = Exact<{ [key: string]: never }>;
 
-
-export type PostPreviewsQuery = (
-  { __typename?: 'Query' }
-  & { user?: Maybe<(
-    { __typename?: 'User' }
-    & { publication?: Maybe<(
-      { __typename?: 'Publication' }
-      & { posts?: Maybe<Array<Maybe<(
-        { __typename?: 'Post' }
-        & Pick<Post, 'title' | 'brief' | '_id' | 'dateAdded' | 'slug'>
-      )>>> }
-    )> }
-  )> }
-);
-
+export type PostPreviewsQuery = { __typename?: 'Query' } & {
+  user?: Maybe<
+    { __typename?: 'User' } & {
+      publication?: Maybe<
+        { __typename?: 'Publication' } & {
+          posts?: Maybe<
+            Array<
+              Maybe<
+                { __typename?: 'Post' } & Pick<
+                  Post,
+                  'title' | 'brief' | '_id' | 'dateAdded' | 'slug'
+                >
+              >
+            >
+          >;
+        }
+      >;
+    }
+  >;
+};
 
 export const PostPreviewsDocument = `
     query postPreviews {
@@ -659,15 +651,30 @@ export const PostPreviewsDocument = `
 }
     `;
 export const usePostPreviewsQuery = <
-      TData = PostPreviewsQuery,
-      TError = unknown
-    >(
-      variables?: PostPreviewsQueryVariables, 
-      options?: UseQueryOptions<PostPreviewsQuery, TError, TData>
-    ) => 
-    useQuery<PostPreviewsQuery, TError, TData>(
-      ['postPreviews', variables],
-      fetcher<PostPreviewsQuery, PostPreviewsQueryVariables>(PostPreviewsDocument, variables),
-      options
-    );
-usePostPreviewsQuery.fetcher = (variables?: PostPreviewsQueryVariables) => fetcher<PostPreviewsQuery, PostPreviewsQueryVariables>(PostPreviewsDocument, variables);
+  TData = PostPreviewsQuery,
+  TError = unknown
+>(
+  dataSource: { endpoint: string; fetchParams?: RequestInit },
+  variables?: PostPreviewsQueryVariables,
+  options?: UseQueryOptions<PostPreviewsQuery, TError, TData>
+) =>
+  useQuery<PostPreviewsQuery, TError, TData>(
+    ['postPreviews', variables],
+    fetcher<PostPreviewsQuery, PostPreviewsQueryVariables>(
+      dataSource.endpoint,
+      dataSource.fetchParams || {},
+      PostPreviewsDocument,
+      variables
+    ),
+    options
+  );
+usePostPreviewsQuery.fetcher = (
+  dataSource: { endpoint: string; fetchParams?: RequestInit },
+  variables?: PostPreviewsQueryVariables
+) =>
+  fetcher<PostPreviewsQuery, PostPreviewsQueryVariables>(
+    dataSource.endpoint,
+    dataSource.fetchParams || {},
+    PostPreviewsDocument,
+    variables
+  );

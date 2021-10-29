@@ -9,8 +9,8 @@ generates:
       - 'typescript-react-query'
     config:
       fetcher:
-        endpoint: 'https://api.hashnode.com/'
-        fetchParams:
-          headers:
-            content-type: 'application/json'
+        # endpoint: 'https://api.hashnode.com/'
+        # fetchParams:
+        #   headers:
+        #     content-type: 'application/json'
       exposeFetcher: true

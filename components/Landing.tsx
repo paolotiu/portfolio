@@ -1,8 +1,8 @@
+import React, { useEffect, useState } from 'react';
+import { RoughNotationGroup, RoughNotation } from 'react-rough-notation';
 import { HIGHLIGHT_COLORS } from '@/lib/constants';
 import { useIsFontReady } from '@/lib/hooks/useIsFontReady';
 import { shuffleArray } from '@/lib/shuffleArray';
-import React, { useEffect, useState } from 'react';
-import { RoughNotationGroup, RoughNotation } from 'react-rough-notation';
 import Button from './Button';
 // import LinkTo from './LinkTo';
 
@@ -31,13 +31,11 @@ const Landing = () => {
               </RoughNotation>
             </span>
           </h1>
-          <h2 className="heading main text-subtext">
-            I like making cool stuff
-          </h2>
+          <h2 className="heading main text-subtext">I like making cool stuff</h2>
 
           <p className="max-w-2xl pt-3 md:text-lg dark:text-white">
-            I’m a developer specializing in building products with amazing
-            performance, experiences, and usability.
+            I’m a developer specializing in building products with amazing performance, experiences,
+            and usability.
             {/*  I would love if you could{' '}
             <LinkTo href="/gruset-book">sign my guestbook!</LinkTo> */}
           </p>

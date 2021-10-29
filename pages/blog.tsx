@@ -1,8 +1,8 @@
+import MainLayout from 'layouts/MainLayout';
+import React from 'react';
 import BlogPreview from '@/components/Blog/BlogPreview';
 import { getAllFilesFrontMatter } from '@/lib/mdx';
 import { FrontMatter } from '@/types/interfaces';
-import MainLayout from 'layouts/MainLayout';
-import React from 'react';
 
 interface Props {
   posts: FrontMatter[];

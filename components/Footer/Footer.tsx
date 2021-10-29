@@ -1,8 +1,8 @@
-import { animateSignatureAtom } from '@/lib/jotai';
 import clsx from 'clsx';
 import { useAtom } from 'jotai';
 import React, { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { animateSignatureAtom } from '@/lib/jotai';
 import LinkTo from '../LinkTo';
 import styles from './Footer.module.css';
 
@@ -15,18 +15,11 @@ const FooterLink = ({
   isExternal?: boolean;
   href: string;
 }) => {
-  const className = clsx(
-    ' hover:text-gray-800 dark:hover:text-gray-200 no-underline text-current'
-  );
+  const className = clsx(' hover:text-gray-800 dark:hover:text-gray-200 no-underline text-current');
 
   if (isExternal) {
     return (
-      <a
-        href={href}
-        className={className}
-        target="_blank"
-        rel="noreferrer noopener"
-      >
+      <a href={href} className={className} target="_blank" rel="noreferrer noopener">
         {children}
       </a>
     );
@@ -70,8 +63,7 @@ function Signature() {
   const { inView, ref } = useInView({
     triggerOnce: true,
   });
-  const [shouldAnimateSignature, setShouldAnimateSignature] =
-    useAtom(animateSignatureAtom);
+  const [shouldAnimateSignature, setShouldAnimateSignature] = useAtom(animateSignatureAtom);
 
   useEffect(() => {
     if (inView) {

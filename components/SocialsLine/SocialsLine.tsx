@@ -2,9 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import { VscGithubAlt } from 'react-icons/vsc';
 import { IconContext } from 'react-icons';
 import { RiLinkedinLine, RiTwitterLine } from 'react-icons/ri';
+import clsx from 'clsx';
 import { useIsMounted } from '@/lib/hooks/useIsMounted';
 import { getElementHeightInView } from '@/lib/getElementHeightInView';
-import clsx from 'clsx';
 import styles from './SocialsLine.module.css';
 
 interface SocialLinkProps {
@@ -14,12 +14,7 @@ interface SocialLinkProps {
 const SocialLink = ({ href, icon }: SocialLinkProps) => {
   return (
     <li className="last:mb-4">
-      <a
-        href={href}
-        className="block p-3 group "
-        target="_blank"
-        rel="noreferrer noopener"
-      >
+      <a href={href} className="block p-3 group " target="_blank" rel="noreferrer noopener">
         {icon}
       </a>
     </li>
@@ -66,19 +61,10 @@ const SocialsLine = () => {
               'group-hover:transform group-hover:-translate-y-1 group-hover:text-accent group-hover:duration-400 duration-[.1s] dark:text-white',
           }}
         >
-          <SocialLink
-            href="https://github.com/paolotiu"
-            icon={<VscGithubAlt />}
-          />
+          <SocialLink href="https://github.com/paolotiu" icon={<VscGithubAlt />} />
 
-          <SocialLink
-            href="https://linkedin.com/in/paolotiu"
-            icon={<RiLinkedinLine />}
-          />
-          <SocialLink
-            href="https://twitter.com/PaoloTiu_"
-            icon={<RiTwitterLine />}
-          />
+          <SocialLink href="https://linkedin.com/in/paolotiu" icon={<RiLinkedinLine />} />
+          <SocialLink href="https://twitter.com/PaoloTiu_" icon={<RiTwitterLine />} />
           <SocialLink
             href="https://polywork.paolotiu.com"
             icon={
