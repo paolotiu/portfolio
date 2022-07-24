@@ -1,5 +1,4 @@
 import '@/styles/globals.css';
-import PlausibleProvider from 'next-plausible';
 import { DefaultSeo } from 'next-seo';
 import { ThemeProvider } from 'next-themes';
 import type { AppProps } from 'next/app';
@@ -40,13 +39,8 @@ function MyApp({ Component, pageProps }: AppProps) {
               cardType: 'summary_large_image',
             }}
           />
-          <PlausibleProvider
-            domain="paolotiu.com"
-            customDomain="https://plausible.paolotiu.com"
-            selfHosted
-          >
-            <Component {...pageProps} />
-          </PlausibleProvider>
+
+          <Component {...pageProps} />
         </Hydrate>
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>

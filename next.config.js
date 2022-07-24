@@ -20,6 +20,4 @@ const config = {
   // },
 };
 
-module.exports = withPlausibleProxy({
-  customDomain: 'https://plausible.paolotiu.com',
-})(config);
+module.exports = config;
