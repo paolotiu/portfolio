@@ -47,8 +47,7 @@ const handler: NextApiHandler = async (req, res) => {
         });
       }
     }
-
-    return res.status(500).json({ error: error.message || error.toString() });
+    return res.status(500).json({ error: (error as any).message || (error as any).toString() });
   }
 };
 

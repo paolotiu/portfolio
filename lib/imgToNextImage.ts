@@ -3,8 +3,7 @@
 import imageSize from 'image-size';
 import path from 'path';
 import { getPlaiceholder } from 'plaiceholder';
-import { Node } from 'unist';
-import { visit } from 'unist-util-visit';
+import { visit, Node } from 'unist-util-visit';
 import { promisify } from 'util';
 
 const sizeOf = promisify(imageSize);
@@ -51,8 +50,7 @@ async function addMetadata(node: ImageNode): Promise<void> {
 
   if (!res) throw Error(`Invalid image with src "${node.properties.src}"`);
 
-  const placeHolder = (await getPlaiceholder(node.properties.src, { size: 64 }))
-    .base64;
+  const placeHolder = (await getPlaiceholder(node.properties.src, { size: 64 })).base64;
 
   node.properties.width = res.width;
   node.properties.height = res.height;

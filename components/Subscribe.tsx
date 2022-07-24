@@ -30,7 +30,7 @@ const Subscribe = () => {
       setStatus('success');
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        setErrorMessage(error.response?.data.error);
+        setErrorMessage((error.response?.data as any).error);
         setStatus('error');
       }
     }
@@ -51,16 +51,12 @@ const Subscribe = () => {
         Thank you for subscribing!
       </p>
     ),
-    idle: (
-      <p className="text-xs text-gray-700 dark:text-gray-300">No spam. Ever.</p>
-    ),
+    idle: <p className="text-xs text-gray-700 dark:text-gray-300">No spam. Ever.</p>,
   };
   return (
     <div className="pt-16 ">
       <div className="p-6 bg-gray-100 rounded dark:bg-gray-800">
-        <h3 className="text-xl font-bold dark:text-white">
-          Subscribe to the newsletter
-        </h3>
+        <h3 className="text-xl font-bold dark:text-white">Subscribe to the newsletter</h3>
         <p className="pt-1 text-sm text-gray-700 dark:text-gray-300">
           Get emails from me about web development, tech, and cool stuff.
         </p>
@@ -90,11 +86,7 @@ const Subscribe = () => {
               type="submit"
               className="px-4 mt-2 md:mt-[22px] py-2 font-bold text-white bg-gray-400 rounded right-1 top-1 dark:bg-gray-700 focus:outline-none dark:hover:bg-gray-600 hover:bg-gray-400/80 hover:transition-colors flex justify-center items-center "
             >
-              {isSubmitting ? (
-                <FiLoader className="h-6 text-gray-500 animate-spin" />
-              ) : (
-                'Subscribe'
-              )}
+              {isSubmitting ? <FiLoader className="h-6 text-gray-500 animate-spin" /> : 'Subscribe'}
             </button>
           </div>
         </form>
