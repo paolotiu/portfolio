@@ -1,20 +1,14 @@
-import React from 'react';
+import React from "react";
 
 interface Props {
   imgSrc: string;
   title: string;
   description: string;
   liveLink: string;
-  repoLink: string;
+  repoLink?: string;
 }
 
-const ProjectCard = ({
-  imgSrc,
-  title,
-  description,
-  liveLink,
-  repoLink,
-}: Props) => {
+const ProjectCard = ({ imgSrc, title, description, liveLink, repoLink }: Props) => {
   return (
     <div className="flex flex-col w-full">
       <div
@@ -27,15 +21,12 @@ const ProjectCard = ({
       </div>
       <div className="pt-4 mt-auto space-x-4">
         <OutboundLink href={liveLink}>Live Project</OutboundLink>
-        <OutboundLink href={repoLink}>Github Repo</OutboundLink>
+        {repoLink && <OutboundLink href={repoLink}>Github Repo</OutboundLink>}
       </div>
     </div>
   );
 };
-function OutboundLink({
-  children,
-  ...props
-}: React.ComponentPropsWithoutRef<'a'>) {
+function OutboundLink({ children, ...props }: React.ComponentPropsWithoutRef<"a">) {
   return (
     <a
       {...props}

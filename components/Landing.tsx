@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { RoughNotationGroup, RoughNotation } from 'react-rough-notation';
-import { HIGHLIGHT_COLORS } from '@/lib/constants';
-import { useIsFontReady } from '@/lib/hooks/useIsFontReady';
-import { shuffleArray } from '@/lib/shuffleArray';
-import Button from './Button';
+import React, { useEffect, useState } from "react";
+import { RoughNotationGroup, RoughNotation } from "react-rough-notation";
+import { HIGHLIGHT_COLORS } from "@/lib/constants";
+import { useIsFontReady } from "@/lib/hooks/useIsFontReady";
+import { shuffleArray } from "@/lib/shuffleArray";
+import Button from "./Button";
 // import LinkTo from './LinkTo';
 
 const Landing = () => {
@@ -18,7 +18,7 @@ const Landing = () => {
       <RoughNotationGroup show={isFontReady}>
         <div className="mb-48 space-y-3">
           <h1 className="heading dark:text-white">
-            Hey, I&apos;m{' '}
+            I&apos;m{" "}
             <span className="whitespace-nowrap">
               <RoughNotation
                 type="underline"
@@ -31,11 +31,11 @@ const Landing = () => {
               </RoughNotation>
             </span>
           </h1>
-          <h2 className="heading main text-subtext">I like making cool stuff</h2>
+          {/* <h2 className="heading main text-subtext">I like making cool stuff</h2> */}
 
           <p className="max-w-2xl pt-3 md:text-lg dark:text-white">
-            I’m a developer specializing in building products with amazing performance, experiences,
-            and usability.
+            A developer specializing in building products with amazing performance, experiences, and
+            usability.
             {/*  I would love if you could{' '}
             <LinkTo href="/gruset-book">sign my guestbook!</LinkTo> */}
           </p>

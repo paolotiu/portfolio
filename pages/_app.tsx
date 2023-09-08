@@ -1,17 +1,17 @@
-import '@/styles/globals.css';
-import { DefaultSeo } from 'next-seo';
-import { ThemeProvider } from 'next-themes';
-import type { AppProps } from 'next/app';
-import { useRouter } from 'next/dist/client/router';
-import React, { useState } from 'react';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { ReactQueryDevtools } from 'react-query/devtools';
-import { Hydrate } from 'react-query/hydration';
+import "@/styles/globals.css";
+import { DefaultSeo } from "next-seo";
+import { ThemeProvider } from "next-themes";
+import type { AppProps } from "next/app";
+import { useRouter } from "next/dist/client/router";
+import React, { useState } from "react";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
+import { Hydrate } from "react-query/hydration";
 
 const meta = {
-  description: 'Fullstack Developer creating beautiful experiences.',
-  title: 'Paolo Tiu | Developer & Creator',
-  image: '/banner.png',
+  description: "Fullstack Developer creating beautiful experiences.",
+  title: "Paolo Tiu",
+  image: "/banner.png",
 };
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -26,17 +26,17 @@ function MyApp({ Component, pageProps }: AppProps) {
             title={meta.title}
             description={meta.description}
             openGraph={{
-              type: 'website',
+              type: "website",
               description: meta.description,
               title: meta.title,
-              site_name: 'Paolo Tiu',
+              site_name: "Paolo Tiu",
               images: [{ url: `https://paolotiu.com${meta.image}` }],
             }}
             canonical={`https://paolotiu.com${router.asPath}`}
             twitter={{
-              handle: '@PaoloTiu_',
-              site: '@PaoloTiu_',
-              cardType: 'summary_large_image',
+              handle: "@PaoloTiu_",
+              site: "@PaoloTiu_",
+              cardType: "summary_large_image",
             }}
           />
 

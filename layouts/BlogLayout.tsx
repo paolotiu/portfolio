@@ -1,15 +1,14 @@
-import Subscribe from '@/components/Subscribe';
-import { activeHeadingAtom } from '@/lib/jotai';
-import { TOC } from '@/lib/getTableOfContents';
-import { getBlogViews, supabase } from '@/lib/supabase';
-import clsx from 'clsx';
-import { useAtom } from 'jotai';
-import Link from 'next/link';
-import React, { useEffect } from 'react';
-import { Blog, FrontMatter } from '@/types/interfaces';
-import dayjs from 'dayjs';
-import { NextSeo } from 'next-seo';
-import MainLayout from './MainLayout';
+import clsx from "clsx";
+import { useAtom } from "jotai";
+import Link from "next/link";
+import React, { useEffect } from "react";
+import dayjs from "dayjs";
+import { NextSeo } from "next-seo";
+import { Blog, FrontMatter } from "@/types/interfaces";
+import { getBlogViews, supabase } from "@/lib/supabase";
+import { TOC } from "@/lib/getTableOfContents";
+import { activeHeadingAtom } from "@/lib/jotai";
+import MainLayout from "./MainLayout";
 
 interface Props {
   children: React.ReactNode;
@@ -27,9 +26,9 @@ const TableOfContents = ({ toc }: { toc: TOC }) => {
             <a
               href={heading.link}
               className={clsx(
-                'block my-2 toc-link whitespace-nowrap dark:text-white',
-                heading.position === 3 ? 'ml-4' : '',
-                activeHeading === heading.id && 'active'
+                "block my-2 toc-link whitespace-nowrap dark:text-white",
+                heading.position === 3 ? "ml-4" : "",
+                activeHeading === heading.id && "active"
               )}
             >
               {heading.title}
@@ -42,9 +41,7 @@ const TableOfContents = ({ toc }: { toc: TOC }) => {
 };
 
 const baseUrl =
-  process.env.NODE_ENV === 'development'
-    ? 'http://localhost:3000'
-    : 'https://paolotiu.com';
+  process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://paolotiu.com";
 const BlogLayout = ({
   children,
   toc,
@@ -57,17 +54,17 @@ const BlogLayout = ({
 
       if (res.data?.length) {
         // Blog is in db
-        await supabase.rpc('increment', { blog_slug: slug });
+        await supabase.rpc("increment", { blog_slug: slug });
       } else {
         // Blog isn't in db
-        await supabase.from<Blog>('blog').insert({
+        await supabase.from<Blog>("blog").insert({
           slug,
           views: 1,
         });
       }
     };
 
-    if (process.env.NODE_ENV !== 'development') {
+    if (process.env.NODE_ENV !== "development") {
       registerView();
     }
   }, [slug]);
@@ -79,12 +76,12 @@ const BlogLayout = ({
         description={summary}
         openGraph={{
           title: `${title} - Paolo Tiu`,
-          type: 'article',
+          type: "article",
           description: summary,
           images: [{ url: `${baseUrl}${image}` }],
           article: {
             publishedTime: publishedAt,
-            authors: ['https://paolotiu.com'],
+            authors: ["https://paolotiu.com"],
             tags,
           },
         }}
@@ -101,16 +98,13 @@ const BlogLayout = ({
               {title}
             </h1>
             <div className="flex justify-between pt-4 pb-2 text-sm text-gray-500 dark:text-gray-400">
-              <span>{dayjs(new Date(publishedAt)).format('MMMM D, YYYY')}</span>
+              <span>{dayjs(new Date(publishedAt)).format("MMMM D, YYYY")}</span>
               <span>{readingTime.text}</span>
             </div>
             <hr className="pb-8 " />
-            <div className="w-full prose dark:prose-dark max-w-none">
-              {children}
-            </div>
+            <div className="w-full prose dark:prose-dark max-w-none">{children}</div>
           </div>
         </div>
-        <Subscribe />
       </div>
     </MainLayout>
   );
