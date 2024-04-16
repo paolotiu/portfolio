@@ -10,7 +10,7 @@ const Projects = () => {
       </SectionTitle>
       <div className="grid grid-cols-1 gap-x-[140px] gap-y-20 pt-10 lg:grid-cols-2 ">
         <ProjectCard
-          imgSrc="projects/BballHQMockup.png"
+          imgSrc="projects/BBallHQMockup.png"
           title="BballHQ"
           description="An advanced NBA Fantasy Basketball platform that provides tools for users to analyze and manage their fantasy teams. Built with Remix, Fly.io, and Python"
           liveLink="https://www.bballhq.com"
