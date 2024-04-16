@@ -19,7 +19,7 @@ const ProjectCard = ({ imgSrc, title, description, liveLink, repoLink }: Props) 
         <h3 className="text-3xl font-medium dark:text-white">{title}</h3>
         <p className="pt-2 leading-7 text-subtext">{description}</p>
       </div>
-      <div className="pt-4 mt-auto space-x-4">
+      <div className="pt-4 space-x-4">
         <OutboundLink href={liveLink}>Live Project</OutboundLink>
         {repoLink && <OutboundLink href={repoLink}>Github Repo</OutboundLink>}
       </div>

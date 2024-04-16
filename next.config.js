@@ -1,11 +1,12 @@
-const withTM = require('next-transpile-modules')(['unist-util-visit']);
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
+const withTM = require("next-transpile-modules")(["unist-util-visit"]);
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
 });
-const { withPlausibleProxy } = require('next-plausible');
+const { withPlausibleProxy } = require("next-plausible");
 
 const config = {
   reactStrictMode: true,
+  output: "standalone",
   // webpack: (config, { dev, isServer }) => {
   //   // Replace React with Preact only in client production build
   //   if (!dev && !isServer) {

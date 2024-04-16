@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portfolio-app-deployment
+  labels:
+    app: portfolio-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: portfolio-app
+  template:
+    metadata:
+      labels:
+        app: portfolio-app
+    spec:
+      containers:
+        - name: portfolio-app-deployment
+          image: paolotiu/iscs-30-submission
+          resources:
+            requests:
+              cpu: "100m"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
