@@ -4,7 +4,7 @@ interface Props {
   imgSrc: string;
   title: string;
   description: string;
-  liveLink: string;
+  liveLink?: string;
   repoLink?: string;
 }
 
@@ -20,7 +20,8 @@ const ProjectCard = ({ imgSrc, title, description, liveLink, repoLink }: Props) 
         <p className="pt-2 leading-7 text-subtext">{description}</p>
       </div>
       <div className="pt-4 space-x-4">
-        <OutboundLink href={liveLink}>Live Project</OutboundLink>
+        {liveLink && <OutboundLink href={liveLink}>Live Project</OutboundLink>}
+
         {repoLink && <OutboundLink href={repoLink}>Github Repo</OutboundLink>}
       </div>
     </div>

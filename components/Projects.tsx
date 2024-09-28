@@ -39,8 +39,7 @@ const Projects = () => {
           imgSrc="projects/TaikeeMockup.png"
           title="Taikee"
           description="Taikee is a money management platform that helps you make better decisions with your finances. Built with Remix, Planetscale, and Cloudflare."
-          liveLink="https://taikee.co"
-          // repoLink="https://github.com/paolotiu/canvas-jewelry"
+          // liveLink="https://taikee.co"
         />
 
         {/* <ProjectCard
